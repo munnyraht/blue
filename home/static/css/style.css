@@ -1,0 +1,133 @@
+.navlink{
+	color: black;
+	background-color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,1) !important;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 30px;
+    margin-top:20px;
+    }
+  .fa-user{
+  	font-size: 50px;
+  	color: 	#B22222;
+  	margin-bottom:10px;
+  	margin-top:20px;
+
+  }
+  input{
+    border-color: #fff !important;
+}
+  .features-icon{
+  	margin-top: 0px !important;
+  }
+
+  .box{
+   box-sizing: content-box;  
+  width: 300px;
+  height: 100px;
+  padding: 30px;  
+  border: 1px solid blue;
+
+
+}
+  .box{
+  	box-sizing: content-box;  
+  width: 100%;
+  font-weight: bold;
+  height: 100px;
+  color: #2D6A93;
+  padding: 20px;  
+  border: 1.5px solid #3275A2 !important;
+  background-color: #DDEAEC;
+  }
+  .loanbox{ 
+  
+  font-weight: bold;
+  height: 200px;
+  color: #2D6A93;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 0px !important;  
+  border: 1px solid #3275A2 !important;
+  /*background-color: #DDEAEC;*/
+  }
+  .loanoffer{
+	color: 	#B22222 !important; 
+}
+ 	.features-icons{
+  	margin-top: 0px !important;
+  }
+  .box{
+  	box-sizing: content-box;  
+  width: 100%;
+  font-weight: bold;
+  height: 100px;
+  color: #2D6A93;
+  padding: 20px;  
+  border: 1.5px solid #00537B !important;
+  background-color: #EDF3F6;
+  }
+  .loanbox{ 
+  
+  font-weight: bold;
+  height: 250px;
+  color: #2D6A93;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 0px !important;  
+  border: 1px solid #666 !important;
+  /*background-color: #DDEAEC;*/
+  }
+  .loanoffer{
+	color: 	#B22222 !important; 
+}
+.col-lg-2{
+		width: 30% !important;
+  
+}
+.logobox{
+	border: 0.1px solid #707070 !important;
+	padding: 40px;
+	margin-top: 50px;
+
+}
+.round-text{
+	
+}
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100% ;
+  height: 25px;
+  background: #d3d3d3 !important;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}

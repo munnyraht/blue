@@ -1,0 +1,332 @@
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>BlueCredit</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<!-- Custom fonts for this template -->
+	<link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- Custom styles for this template -->
+	<link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/landing-page.css' %}" rel="stylesheet">
+
+</head>
+
+<style type="text/css">
+	body{
+		background-color: #7E8FA2;
+	}
+	.loan{
+		background-color: #7E8FA2 !important;
+	}
+
+  .progressbar {
+      counter-reset: step;
+      margin-top: 40px;
+      margin-bottom: 40px;
+  }
+  .progressbar li {
+      list-style-type: none;
+      width: 20%;
+      float: left;
+      font-size: 12px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+  }
+  .progressbar li:before {
+      width: 30px;
+      height: 30px;
+      content: counter(step);
+      counter-increment: step;
+      line-height: 30px;
+      color: #61768E;;
+      border: 5px solid #fff;
+      /*display: block;*/
+      text-align: center;
+      margin: 0 auto 40px auto;
+      border-radius: 50%;
+      background-color: #61768E;
+  }
+  .progressbar li:after {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      top: 15px;
+      left: -50%;
+      z-index: -1;
+  }
+  .progressbar li:first-child:after {
+      content: none;
+      color: #61768E;
+
+
+  }
+  .progressbar li.active {
+      color: #fff !important;
+
+  }
+  .progressbar li.active:before {
+      border-color: #fff;
+      color: #fff;
+      background-color: #fff;
+  }
+
+  .progressbar li.active:after {
+      border-color: #fff;
+      color: #fff;
+      background-color: #EDF3F6;
+  }
+  .progressbar li.active + li:after {
+      background-color: #EDF3F6 !important;
+  }
+  
+     .progressbar li.active + li:before {
+    border-color: #EDF3F6 !important;
+    background: #EDF3F6 !important;
+    color: #EDF3F6 !important;
+}
+.amount{
+	
+  /*border: 2px solid;*/
+  background-color: #fff;
+  border-radius: 5px;
+  height:50;
+
+}
+.card{
+	background-color: #61768E;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;   
+  background: #fff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 10px solid red;
+  border-radius: 50%; 
+  background: #D9261B;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border: 5px solid #7E8FA2 ;
+  border-radius: 50%;
+  background: #D9261B;
+  cursor: pointer;
+}
+.container{
+	width: 100%;
+
+}
+
+.progressbarr {
+  counter-reset: step;
+  color: #61768E;
+}
+.progressbarr li {
+  list-style: none;
+  display: inline-block;
+  width: 20.33%;
+  color: #61768E;
+  background-color: #61768E;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.progressbarr li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  color: #61768E
+  line-height : 30px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: #61768E;
+}
+.progressbarr li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #61768E;
+  top: 15px;
+  left: -50%;
+  z-index : -1;
+}
+.progressbarr li:first-child:after {
+  content: none;
+  color: white;
+}
+.progressbarr li.active {
+  color: white;
+
+}
+.progressbarr li.active:before {
+  border-color: white;
+  background-color: white;
+} 
+.progressbarr li.active + li:after {
+  background-color: #61768E;
+  color: white;
+}
+
+</style>
+
+<body>
+
+	<nav class="navbar navlink navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container col-md-12">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'img/logo.png' %}"></a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+				<i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">HOME</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">LOANS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">ABOUT</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">FEATURES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#">ACCOUNT</a>
+					</li>
+					<li class="nav-item">
+						<a class="navlink js-scroll-trigger" href="#"><i class="fa fa-user"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Masthead -->
+	<section class="testimonials loan text-center bg-light">
+		<div class="container mx-auto " style="">
+			<div class="col-md-12 mx-auto" style="">
+				<div class="container" style="margin-top: 100px;">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-5 card">
+							<div class="" style="margin-top: 30px">
+						     <!--  -->
+						     <ul class="progressbarr">
+						        <li class="active"></li>
+						        <li class=""></li>
+						        <li></li>
+						        <li></li>
+						        
+						      </ul>
+						      <div class="slidecontainer col-md-8 mx-auto">
+						      	
+							  <div class="amount"><p><span id="moveAmount" style="color: black; font-size: 30px; letter-spacing: letter-spacing: 10px;"></span></p>
+							  </div>
+							</div>
+							  <div class="progressbar col-md-12">
+							  <input type="range" min="1" max="1000000" value="50000" class="slider" id="loanAmount">
+							  </div>
+							
+							<div class="slidecontainer col-md-4 mx-auto">
+						      	
+							  <div class="amount"><p><span id="moveMonth" style="color: black; font-size: 30px; letter-spacing: letter-spacing: 10px;"></span>{% if input.moveMonth == 1 %}Month</p> {% else %}Months
+							  	{% endif %}
+							  </div>
+							</div>
+							  <div class="progressbar col-md-12">
+							  <input type="range" min="1" max="12" value="5" class="slider" id="loanMonth"> 
+							  </div>
+							
+						  </div>
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<select class="mdb-select md-form btn-lg btn-primary col-md-12" style="background-color: #61768E; border-color: #61768E; margin-bottom: 20px">
+								<!-- <option value="" disabled selected>Choose your option</option> -->
+								<option value="1">Self Employed</option>
+								<option value="2">Market Aid</option>
+
+							</select>
+							<div class="card card2 col-md-12" style="background-color: #FFF;color: black; height: 320px;">
+								<h2 style="margin-top: 20px;">Loan Calculator</h2>
+								<div class="row">
+									<div class="col-md-2">
+										<div class="circle">
+										<a class="num" href="#">1</a>
+										</div>
+										<div class="circle">
+										<a class="num" href="#">2</a>
+										</div>
+										<div class="circle">
+										<a class="num" href="#">3</a>
+										</div>
+										<div class="circle">
+										<a class="num" href="#">4</a>
+										</div>
+									</div>
+									<div class="col-md-3" style="padding-bottom: 2rem">
+										<img class="img-fluid" src="{% static 'img/nairatrans.png' %}" width="40%" style="padding-bottom: 2rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/nairablack.png' %}" width="40%" style="padding-bottom: 3rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/calender.png' %}" width="40%" style="padding-bottom: 2rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/calculator.png' %}" width="40%" style="padding-bottom: 2rem"><br>
+									</div>
+									<div class="col-md-5 mx-auto" style="line-height: 3rem">
+										<p class="img-fluid">Select Loan Type</p>
+										<p class="img-fluid">Select Loan Amount</p>
+										<p class="img-fluid">Select Loan Tenure</p>
+										<p class="img-fluid">View Estimates</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static 'js/new-age.min.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+		<!--  -->
+	</body>
+	</html>

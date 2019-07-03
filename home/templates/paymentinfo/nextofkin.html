@@ -1,0 +1,484 @@
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>BlueCredit</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<!-- Custom fonts for this template -->
+	<link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- Custom styles for this template -->
+	<link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/landing-page.css' %}" rel="stylesheet">
+
+</head>
+
+<style>
+	body{
+
+	}
+	.bg-light{
+		/*background-color:  #61768E !important;
+		color: #fff !important;*/
+	}
+
+	.table{
+		padding: 0px;
+
+	}
+	span{
+		margin-right: 50px !important;
+		margin-bottom:10px;
+	}
+	input[type="text"]:disabled {
+		background: #707070;
+		opacity: 0.1;
+		border-color: #707070 !important;
+	}
+	/*	.loan{
+		background-color: #7E8FA2 !important;
+		}*/
+
+		.amount{
+
+			/*border: 2px solid;*/
+			background-color: #fff;
+			border-radius: 5px;
+			height:50;
+
+		}
+		.card{
+			background-color: #E0E0E0;
+		}
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			height: 10px;
+			border-radius: 5px;   
+			background: #fff;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 10px;
+			height: 10px;
+			border: 10px solid red;
+			border-radius: 50%; 
+			background: #D9261B;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			border: 5px solid #7E8FA2 ;
+			border-radius: 50%;
+			background: #D9261B;
+			cursor: pointer;
+		}
+		.container{
+
+
+		}
+		.progressbar {
+			counter-reset: step;
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+		.progressbar li {
+			list-style-type: none;
+			width: 20%;
+			float: left;
+			font-size: 12px;
+			position: relative;
+			text-align: center;
+			text-transform: uppercase;
+			color: #fff;
+		}
+		.progressbar li:before {
+			width: 30px;
+			height: 30px;
+			content: counter(step);
+			counter-increment: step;
+			line-height: 30px;
+			color: #61768E;;
+			border: 5px solid #fff;
+			/*display: block;*/
+			text-align: center;
+			margin: 0 auto 40px auto;
+			border-radius: 50%;
+			background-color: #61768E;
+		}
+		.progressbar li:after {
+			width: 100%;
+			height: 2px;
+			content: '';
+			position: absolute;
+			background-color: #fff;
+			top: 15px;
+			left: -50%;
+			z-index: -1;
+		}
+		.progressbar li:first-child:after {
+			content: none;
+			color: #61768E;
+
+
+		}
+		.progressbar li.active {
+			color: #fff !important;
+
+		}
+		.progressbar li.active:before {
+			border-color: #fff;
+			color: #fff;
+			background-color: #fff;
+		}
+
+		.progressbar li.active:after {
+			border-color: #fff;
+			color: #fff;
+			background-color: #EDF3F6;
+		}
+		.progressbar li.active + li:after {
+			background-color: #EDF3F6 !important;
+		}
+
+		.progressbar li.active + li:before {
+			border-color: #EDF3F6 !important;
+			background: #EDF3F6 !important;
+			color: #EDF3F6 !important;
+		}
+
+		.progressbarr {
+			counter-reset: step;
+			color: #61768E;
+		}
+		.progressbarr li {
+			list-style: none;
+			display: inline-block;
+			width: 20.33%;
+			color: #61768E;
+			background-color: #61768E;
+			position: relative;
+			text-align: center;
+			cursor: pointer;
+		}
+		.progressbarr li:before {
+			content: counter(step);
+			counter-increment: step;
+			width: 30px;
+			height: 30px;
+			color: #61768E
+			line-height : 30px;
+			border: 1px solid #ddd;
+			border-radius: 100%;
+			display: block;
+			text-align: center;
+			margin: 0 auto 10px auto;
+			background-color: #61768E;
+		}
+		.progressbarr li:after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			background-color: #61768E;
+			top: 15px;
+			left: -50%;
+			z-index : -1;
+		}
+		.progressbarr li:first-child:after {
+			content: none;
+			color: white;
+		}
+		.progressbarr li.active {
+			color: white;
+
+		}
+		.progressbarr li.active:before {
+			border-color: white;
+			background-color: white;
+		} 
+		.progressbarr li.active + li:after {
+			background-color: #61768E;
+			color: white;
+		}
+		.input {
+			border: 1px solid #ccc;
+			background: linear-gradient(to left, #ccc 1px, transparent 0);
+			background-size: 18px 1px;
+			width: 321px; 
+			font: 12px monaco, monospace; 
+			letter-spacing: 10.5px;
+			text-indent: 5px;
+			text-transform: uppercase;
+		}
+		.shadow{
+			-webkit-box-shadow: -1px 10px 19px -8px rgba(0,0,0,0.75);
+			-moz-box-shadow: -1px 10px 19px -8px rgba(0,0,0,0.75);
+			box-shadow: -1px 10px 19px -8px rgba(0,0,0,0.75);
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navlink navbar-expand-lg navbar-light fixed-top" id="mainNav">
+			<div class="container col-md-12">
+				<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'img/logo.png' %}"></a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#">LOANS</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#">ABOUT</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#">FEATURES</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#">ACCOUNT</a>
+						</li>
+						<li class="nav-item">
+							<a class="navlink js-scroll-trigger" href="#"><i class="fa fa-user"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Masthead -->
+		<section class="testimonials text-center" style="background-color: #7E8FA2 !important">
+			<div class="container mx-auto " style="">
+				<div class="col-md-12 mx-auto" style="">
+					
+				</div>
+			</section>
+			<section class="testimonials loan text-center bg-light">
+				<div class="container mx-auto " style="">
+					<div class="col-md-10 mx-auto">
+						<div class="container" style="margin-top: 10px;">
+							<div class="card mx-auto col-md-10" style="height: 200px; background-color: white">
+								<table class="table table-borderless" style="margin: 30px;">
+									<tr style="">
+										<th></th>
+										<th style="">₦</th>
+										<th style="color: #D9261B">Month</th>
+										<th style="color:#D9261B ">Total</th>
+									</tr>
+									<tr>
+										<td></td>
+										<td>Loan</td>
+										<td>Term</td>
+										<td>Repayment</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>550,000</td>
+										<td>12</td>
+										<td>612,000</td>
+									</tr>
+								</table>
+							</div>
+							<p style="color: black; font-size: 12px;">The offer above is an estimate and should only serve as a guide. Your final offer will be determined by the product type and your financial profile.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<section class="personalinfo">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-8 mx-auto">
+							<h5>Next of Kin Information</h5>
+						</div>
+						<div class="col-md-4">
+							<h5>BVN &nbsp; &nbsp; 98765432109</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 mx-auto">
+
+					<form method="POST" style=" margin-top: 40px;">
+						{% csrf_token %}
+
+						<div class="shadow"  style="background-color: #F9DFDE;">
+						<div class="row mx-auto col-md-10" style="margin: 30px; font-size: 14px;">
+							<form id="createnextofkin" method="POST">
+							<div class="col-md-12"   style="margin-top: 20px;">
+								
+								<div class="form-group row">
+									<label for="nextofkinname" class="col-sm-3 col-form-label">Next of Kin Name</label>
+									<div class="col-md-9">
+										<input type="text" name="nextofkinname"  class="form-control" id="nextofkinname" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label for="nextofkin" class="col-sm-5 col-form-label">Is your Next of Kin?</label>
+									<div class="col-md-7" style="padding-left: 50px;">
+										<select name="nextofkinrelationship" id="nextofkinrelationship" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<option value="Mother">Mother</option>
+											<option value="Father">Father</option>
+											<option value="Sibling">Sibling</option>
+											<option value="Parent">Parent</option>
+											<option value="Spouse">Spouse</option>
+											<option value="Cousin">Cusin</option>
+
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label for="phone" class="col-sm-4 col-form-label">Mobile Number</label>
+									<div class="col-md-8">
+										<input type="number" name="nextofkinphone"  class="form-control" id="nextofkinphone" placeholder="+234900000000">
+									</div>
+								</div>
+							</div>
+								<div class="col-md-12"   style="">
+								
+								<div class="form-group row">
+									<label for="nextofkinemail" class="col-sm-3 col-form-label">Email Address</label>
+									<div class="col-md-9">
+										<input type="email" name="nextofkinemail"  class="form-control" style="height: 50px;" id="nextofkinemail" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12"   style="">
+								
+								<div class="form-group row">
+									<label for="nextofkinaddress" class="col-sm-3 col-form-label">Employer's Address and Department</label>
+									<div class="col-md-9">
+										<input type="text" name="nextofkinaddress"  class="form-control" style="height: 50px;" id="nextofkinaddress" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								
+								<div class="form-group row">
+									<label for="landmark" class="col-sm-3 col-form-label">Landmark closest to Address</label>
+									<div class="col-md-9">
+										<input type="text" name="landmark"  class="form-control" style="height: 50px;" id="landmark" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label for="nextofkin" class="col-sm-5 col-form-label">Income Band (₦)</label>
+									<div class="col-md-7"style="padding-left: 50px;">
+										<select id="income" name="income" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<!-- <option value="" disabled selected>Choose your option</option> -->
+											<option value="750,000 - 1.5M">750,000 - 1.5M</option>
+											<option value="1.5M - 2.5M">1.5M - 2.5M</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label for="phone" class="col-sm-4 col-form-label">Net Monthly Income (₦) (After Tax)</label>
+									<div class="col-md-8">
+										<input type="number" name="netincome"  class="form-control" id="netincome" placeholder="100,000,00">
+									</div>
+								</div>
+							</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+					<div class="input-group-append col-md-12 mx-auto" style="margin-bottom: 20px;">
+							<button class="btn btn-success btn-lg mx-auto" style=" border-color: #86B68E; background-color: #86B68E !important;" type="submit" id="submit">Continue</button>
+						</div>
+					</form>
+
+				</div>
+				<!-- <div class="col-md-8 mx">
+				{% for loan in nextofkindata %}
+        		<h1>{{ loan.nextofkinname }}</h1>
+        		<h1>{{ loan.nextofkinrelationship }}</h1>
+
+        		{% endfor %}
+        		{{ loan.nextofkinname }}
+        		</div> -->
+			</section>
+
+			<!-- Bootstrap core JavaScript -->
+			<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+			<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'js/new-age.min.js' %}"></script>
+			<script src="{% static 'js/script.js' %}"></script>
+
+			<script>
+				$(document).ready(function(){
+				    $('#submit').on('click', function(){
+				        $nextofkinname = $('#nextofkinname').val();
+				        $nextofkinrelationship = $('#nextofkinrelationship').val();
+				        $nextofkinaddress = $('#nextofkinaddress').val();
+				        $nextofkinphone = $('#nextofkinphone').val();
+				        $nextofkinemail = $('#nextofkinemail').val();
+				        $landmark = $('#landmark').val();
+				        $income = $('#income').val();
+
+
+				        if($nextofkinemail == ""){
+				            alert("Please complete field");
+				        }else{
+				            $.ajax({
+				                type: "POST",
+				                url: '/createnextofkin',
+				                data:{
+				                    nextofkinrelationship: $nextofkinrelationship,
+				                    nextofkinname: $nextofkinname,
+				                    nextofkinaddress: $nextofkinaddress,
+				                    nextofkinphone: $nextofkinphone,
+				                    nextofkinemail: $nextofkinemail,
+				                    landmark: $landmark,
+				                    income: $income,
+				                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+				                },
+				                success: function(){
+				                    alert('Save Data');
+				                    // $('#nextofkinemail').val('');
+				                    window.location = "/";
+				                }
+				            });
+				        }
+				    });
+				});
+			</script>
+
+		</body>
+		</html>
