@@ -1,0 +1,55 @@
+{% block navbar %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/libs/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/chartist-bundle/chartist.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/morris-bundle/morris.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/charts/c3charts/c3.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+   
+<style type="text/css">
+
+    .sidebar-dark {
+    background-color: #D6D9DF !important;
+    -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
+    box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
+    -webkit-transition: all 0.3s ease;
+}
+.sidebar-dark.nav-left-sidebar .navbar-nav .nav-link.active{
+    background-color: white;
+    color: #000000;
+}
+.nav-link{
+    font-size: 20px !important;
+    line-height: 4rem;
+    color: #000000 !important;
+    
+}
+
+</style>
+<div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list" style="margin-top: 30px;">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                             <a class="nav-link active" href="#"><i class="fa fa-fw fa-check-square-o"></i>APPLY FOR LOAN</a>
+                            </li>
+                            <li class="nav-item">
+                             <a class="nav-link" href="#"><i class="fa fa-fw"></i>APPLICANTS</a>
+                            </li>
+                            <li class="nav-item">
+                             <a class="nav-link" href="#"><i class="fa fa-fw"></i>SALES REPORT</a>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}

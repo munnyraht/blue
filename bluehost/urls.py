@@ -6,6 +6,7 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from django.urls import path
+from backend import views as backendviews
 from home import views as views
 from search import views as search_views
 
@@ -31,6 +32,18 @@ urlpatterns = [
     url('nextofkin/', views.nextofkin, name='nextofkin'),
     url('otherdetails/', views.otherdetails, name='otherdetails'),
     url('summary/', views.summary, name='summary'),
+
+    # Backend Urls 
+    #Auth
+    path('login/', backendviews.login, name='login'),
+    path('register/', backendviews.register, name='register'),
+    path('pending/', backendviews.pending, name='pending'),
+    #dashboard
+    path('bluecredit/', backendviews.index, name='Home'),
+    path('results/', backendviews.results, name='results'),
+    path('personal/', backendviews.personal, name='personal'),
+    path('loandetails/', backendviews.loandetails, name='loandetails'),
+
 
 
 

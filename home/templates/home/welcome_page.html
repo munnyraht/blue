@@ -26,6 +26,12 @@
   <link href="{% static 'css/welcome_page.css' %}" rel="stylesheet">
 
   <style>
+    body{
+      background-color: #fff;
+    }
+    nav{
+      background-color: #fff !important;
+    }
 
     .features-icons{
       margin-top: 0px !important;
@@ -37,7 +43,7 @@
       height: 100px;
       color: #2D6A93;
       padding: 20px;  
-      border: 1.5px solid #00537B !important;
+      border: 1px solid #00537B !important;
       background-color: #EDF3F6;
     }
     .loanbox{ 
@@ -225,7 +231,7 @@
 
 
   <!-- Icons Grid -->
-  <section class="bg-light text-center bg-light">
+  <section class="bg-light text-center bg-light ">
     <div class="row">
       <div class="col-md-2 box">
         {% for loan in homedata %}
@@ -237,6 +243,7 @@
       <div class="col-md-2 box">
         <h1>{{ loan.minimuminterest }}</h1>
         <p>Minimum Interest Rate</p>
+        {% endfor %}
       </div>
       <div class="col-md-2 box">
         <h1>24 <span style="font-size: 15px">months</span></h1>
@@ -249,7 +256,7 @@
       <div class="col-md-2 box">
         <h1>24/7</h1>
         <p>Customer Service</p>
-        {% endfor %}
+        
       </div>
     </div>
   </section>

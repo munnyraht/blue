@@ -9,7 +9,6 @@ from django.conf import settings
 
 
 
-
 def home(request):
 	homedata = HomeData.objects.all()
 	context = {}

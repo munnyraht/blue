@@ -1,0 +1,268 @@
+<!doctype html>
+ 
+ {% load staticfiles %}
+<html lang="en">
+ 
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    <title>Backend Dashboard</title>
+</head>
+<style>
+    body{
+        background-color: #fff !important;
+    }
+    .input{
+        border-top-left-radius: 30px !important;
+        border-bottom-left-radius: 30px !important;
+    }
+    /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 5.375rem;
+    line-height: 3.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #D9261B;
+}
+.btn{
+    background-color: #9AA7B5 !important;
+    color: #fff !important;
+    border-color: #9AA7B5 !important;
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none !important;
+    cursor: pointer;
+
+}
+.table thead th,
+.table th {
+    color: #fff !important;
+    background-color: #61768E;
+    font-family: 'Circular Std Medium';
+}
+    .fa-x6{
+        font-size: 100px;
+    }
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+  margin-right: 5px;
+}
+.active{
+    background-color: white !important;
+    color: #61768E !important;
+}
+.earner{
+    background-color: #C47151;
+    color: white;
+    border-radius: 4px;
+    border-width: 0px;
+}
+h4{
+    color: white !important; 
+}
+.details {
+    background-color: #EDF3F6 !important;
+    color: #000 !important;
+}
+
+.details h4 {
+    
+    color: #000 !important;
+}
+.cap{
+    font-weight: bold;
+}
+.loandetails{
+    font-size: 12px;
+}
+
+
+</style>
+
+<body>
+
+    <div class="dashboard-main-wrapper">
+
+       {%include 'dashboard/navbar.html' %}
+
+       {%include 'dashboard/sidebar.html' %}
+     
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                            <div class="card " style="margin-top: 20px; background-color: #D6D9DF">
+                                <div class="card-body row">
+                                    <div class="col-md-4">
+                                        <i class="fa fa-x5 fa-arrow-left"></i>Back To Profile
+                                        <h1 style="margin-top: 5rem;">Kunle Situ</h1>
+                                        </div>
+                                   <div class="input-group col-md-5" style="text-align: right;">
+                                    <h4 class="col-md-12">BVN: 8964093554</h4><br>
+                                    <h5 class="col-md-12">3 Loans</h5><br>
+                                    <h4 class="col-md-12"><button class="earner">Salary Earner</button> </h4><br>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <i class="fa fa-user fa-x6"></i>
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                            <div class="card col-md-10 text-center mx-auto " style="background-color: #61768E; ">
+                                <div class="card-body row">
+                                    <div class="col-md-6 col-sm-6 mx-auto" >
+                                        <h4>LOAN DETAILS</h4>
+                                        </div>
+                                   <div class="mx-auto col-xs-6 col-md-6" style="">
+                                    <h4>COLLATERAL</h4>
+                                  </div>
+                                  
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 loandetails col-12">
+                            <div class="row">
+                            <div class="card col-md-10 text-center mx-auto ">
+                                <div class="card-body row">
+                                    <div class="col-md-5 row details mx-auto card">
+                                        <div class="col-md-12">
+                                    <!-- Loan Details  -->     
+                                        <table class="table table-borderless" style="text-align: left">
+  
+                                          <tbody>
+                                            <tr>
+                                              <td class="cap">LOAN ID</td>
+                                              <td>SE00473</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">LOAN TYPE</td>
+                                              <td>Salary Earner</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">LOAN AMOUNT</td>
+                                              <td>₦ 1,000,000</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">LOAN OFFICER</td>
+                                              <td>Elizabeth Eke</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">APPLICATION DATE</td>
+                                              <td>24/ 11/ 2018</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">LOAN STATUS</td>
+                                              <td>Pending</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        </div>
+                                        </div>
+                                        <!-- Collateral  -->
+                                   <div class="col-md-5 row details mx-auto card">
+                                        <div class="col-md-12">
+                                        
+                                        <table class="table table-borderless" style="text-align: left">
+  
+                                          <tbody>
+                                            <tr>
+                                              <td class="cap">COLLATERAL NAME</td>
+                                              <td>SE00473</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">COLLATERAL TYPE</td>
+                                              <td>Salary Earner</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">COLLATERAL VALUE</td>
+                                              <td>₦ 1,000,000</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">COLLATERAL LOCATION</td>
+                                              <td>Elizabeth Eke</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">COLLATERAL CONDITION</td>
+                                              <td>24/ 11/ 2018</td>
+                                            </tr>
+                                            <tr>
+                                              <td class="cap">LOAN STATUS</td>
+                                              <td>Pending</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        </div>
+                                        </div>
+                                  
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                           
+                    </div>
+                   
+                    
+            </div>
+            
+        </div>
+       
+    </div>
+    
+
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- bootstap bundle js -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <!-- slimscroll js -->
+    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+    <!-- chart chartist js -->
+    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+    <!-- sparkline js -->
+    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+    <!-- morris js -->
+    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+    <!-- chart c3 js -->
+    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+
+</body>
+ 
+</html>

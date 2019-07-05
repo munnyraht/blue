@@ -1,0 +1,141 @@
+<!doctype html>
+ 
+ {% load staticfiles %}
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+   
+    <title>Backend Dashboard</title>
+</head>
+<style>
+    body{
+        background-color: #fff !important;
+    }
+    .input{
+        border-top-left-radius: 30px !important;
+        border-bottom-left-radius: 30px !important;
+    }
+    /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 5.375rem;
+    line-height: 3.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #D9261B;
+}
+.btn{
+    background-color: #9AA7B5 !important;
+    color: #fff !important;
+    border-color: #9AA7B5 !important;
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none !important;
+    cursor: pointer;
+
+}
+</style>
+
+<body>
+
+    <div class="dashboard-main-wrapper">
+
+       {%include 'dashboard/navbar.html' %}
+
+       {%include 'dashboard/sidebar.html' %}
+     
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                            <div class="card " style="margin-top: 20px; background-color: #D6D9DF">
+                                <div class="card-body row">
+                                    <div class="col-md-2">
+                                        <i style="border-width: 0px;" class="fa-4x fa fa-tasks" aria-hidden="true" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="#">Name</a>
+                                      <a class="dropdown-item" href="#">Address</a>
+                                      <a class="dropdown-item" href="#">Date of birth</a>
+                                      <div role="separator" class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Applied</a>
+                                    </div></div>
+                                   <div class="input-group col-md-8 has-search">
+                                     
+                                  <input type="text" class="input form-control" aria-label="Text input with dropdown button"><span class="fa fa-search form-control-feedback"></span>
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BVN</button>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="#">Transaction ID</a>
+                                      <a class="dropdown-item" href="#">Loan Number</a>
+                                      <a class="dropdown-item" href="#">Applicant Name</a>
+                                      <div role="separator" class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Mobile Number</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-md-6 text-center mx-auto " style="margin-top: 40px; background-color: #D6D9DF">
+                                <p style="margin:50px;">search to retrieve records</p>
+                                <div class="card-body row">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+            </div>
+            
+        </div>
+       
+    </div>
+    
+
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- bootstap bundle js -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <!-- slimscroll js -->
+    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+    <!-- chart chartist js -->
+    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+    <!-- sparkline js -->
+    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+    <!-- morris js -->
+    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+    <!-- chart c3 js -->
+    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+
+</body>
+ 
+</html>

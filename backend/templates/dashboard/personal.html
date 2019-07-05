@@ -1,0 +1,234 @@
+<!doctype html>
+ 
+ {% load staticfiles %}
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+   
+    <title>Backend Dashboard</title>
+</head>
+<style>
+    body{
+        background-color: #fff !important;
+    }
+    .input{
+        border-top-left-radius: 30px !important;
+        border-bottom-left-radius: 30px !important;
+    }
+    /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 5.375rem;
+    line-height: 3.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #D9261B;
+}
+.btn{
+    background-color: #9AA7B5 !important;
+    color: #fff !important;
+    border-color: #9AA7B5 !important;
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none !important;
+    cursor: pointer;
+
+}
+.table thead th,
+.table th {
+    color: #fff !important;
+    background-color: #61768E;
+    font-family: 'Circular Std Medium';
+}
+    .fa-x6{
+        font-size: 100px;
+    }
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+  margin-right: 5px;
+}
+.active{
+    background-color: white !important;
+    color: #61768E !important;
+}
+/*.btn{
+    background-color: #61768E !important;
+    color: white !important;
+}*/
+
+
+</style>
+
+<body>
+
+    <div class="dashboard-main-wrapper">
+
+       {%include 'dashboard/navbar.html' %}
+
+       {%include 'dashboard/sidebar.html' %}
+     
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                            <div class="card " style="margin-top: 20px; background-color: #D6D9DF">
+                                <div class="card-body row">
+                                    <div class="col-md-4">
+                                        <i class="fa fa-x5 fa-arrow-left"></i>Back To Search Results
+                                        </div>
+                                   <div class="input-group col-md-5" style="text-align: right;">
+                                    <h2 class="col-md-12">Kunle Situ</h2><br>
+                                    <h5 class="col-md-12">3 Loans</h5><br>
+                                    <h4 class="col-md-12">BVN: 8964093554</h4><br>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <i class="fa fa-user fa-x6"></i>
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card col-md-10 text-center mx-auto ">
+
+
+                                <div class="container"></div>
+                                <div id="exTab3" class="container"> 
+                                <ul  class="nav nav-pills">
+                                            <li class="active">
+                                        <a  href="#1b" class="btn btn-success" data-toggle="tab">Credit Check</a>
+                                            </li>
+                                            <li><a href="#2b" class="btn btn-success" data-toggle="tab">Management</a>
+                                            </li>
+                                            <li><a href="#3b" class="btn btn-success" data-toggle="tab">Credit Report</a>
+                                            </li>
+                                        <li><a href="#4a" class="btn btn-success" data-toggle="tab">Due Diligence</a>
+                                            </li>
+                                            <li><a href="#4a" class="btn btn-success" data-toggle="tab">Funding</a>
+                                            </li>
+                                            <li><a href="#4a" class="btn btn-success" data-toggle="tab">Payment</a>
+                                            </li>
+                                        </ul>
+
+                                            <div class="tab-content clearfix">
+                                              <div class="tab-pane active" id="1b">
+                                          <table class="table">
+                                              <thead class="head">
+                                                <tr>
+                                                  
+                                                  <th scope="col">BVN</th>
+                                                  <th scope="col">Loan ID</th>
+                                                  <th scope="col">Applicant Name</th>
+                                                  <th scope="col">Loan Type</th>
+                                                  <th scope="col">Mobile Number</th>
+                                                  <th scope="col">Application Date</th>
+                                                </tr><hr>
+                                              </thead>
+                                              <hr>
+                                              <tbody>
+                                                <tr>
+                                                  
+                                                  <td>8964093534</td>
+                                                  <td>SE00021</td>
+                                                  <td>Kunle Situ</td>
+                                                  <td>Salary Earner</td>
+                                                  <td>08033285730</td>
+                                                  <td>24 / 11 / 2018</td>
+
+                                                </tr>
+                                                <tr>
+                                                  <td>8964093534</td>
+                                                  <td>SE00021</td>
+                                                  <td>Kunle Situ</td>
+                                                  <td>Salary Earner</td>
+                                                  <td>08033285730</td>
+                                                  <td>24 / 11 / 2018</td>
+                                                </tr>
+                                                <tr>
+                                                <td>8964093534</td>
+                                                  <td>SE00021</td>
+                                                  <td>Kunle Situ</td>
+                                                  <td>Salary Earner</td>
+                                                  <td>08033285730</td>
+                                                  <td>24 / 11 / 2018</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                                </div>
+                                                <div class="tab-pane" id="2b">
+                                          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+                                                </div>
+                                        <div class="tab-pane" id="3b">
+                                          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+                                                </div>
+                                          <div class="tab-pane" id="4a">
+                                          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+                                                </div>
+                                            </div>
+                                  </div>
+
+
+                            </div>
+
+                            <div class="card col-md-10 text-center mx-auto ">
+                                
+                                <div class="card-body row">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+            </div>
+            
+        </div>
+       
+    </div>
+    
+
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- bootstap bundle js -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <!-- slimscroll js -->
+    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+    <!-- chart chartist js -->
+    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+    <!-- sparkline js -->
+    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+    <!-- morris js -->
+    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+    <!-- chart c3 js -->
+    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+
+</body>
+ 
+</html>
