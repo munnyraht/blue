@@ -1,234 +1,736 @@
-<!doctype html>
- 
- {% load staticfiles %}
-<html lang="en">
- 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+  <!doctype html>
    
-    <title>Backend Dashboard</title>
-</head>
-<style>
-    body{
-        background-color: #fff !important;
-    }
-    .input{
-        border-top-left-radius: 30px !important;
-        border-bottom-left-radius: 30px !important;
-    }
-    /* Styles for wrapping the search box */
-
-.main {
-    width: 50%;
-    margin: 50px auto;
-}
-
-/* Bootstrap 4 text input with search icon */
-
-.has-search .form-control {
-    padding-left: 2.375rem;
-}
-
-.has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 5.375rem;
-    line-height: 3.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #D9261B;
-}
-.btn{
-    background-color: #9AA7B5 !important;
-    color: #fff !important;
-    border-color: #9AA7B5 !important;
-}
-[type=reset], [type=submit], button, html [type=button] {
-    -webkit-appearance: none !important;
-    cursor: pointer;
-
-}
-.table thead th,
-.table th {
-    color: #fff !important;
-    background-color: #61768E;
-    font-family: 'Circular Std Medium';
-}
-    .fa-x6{
-        font-size: 100px;
-    }
-
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-  margin-right: 5px;
-}
-.active{
-    background-color: white !important;
-    color: #61768E !important;
-}
-/*.btn{
-    background-color: #61768E !important;
-    color: white !important;
-}*/
-
-
-</style>
-
-<body>
-
-    <div class="dashboard-main-wrapper">
-
-       {%include 'dashboard/navbar.html' %}
-
-       {%include 'dashboard/sidebar.html' %}
+   {% load staticfiles %}
+  <html lang="en">
+   
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
      
-        <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
-                            <div class="card " style="margin-top: 20px; background-color: #D6D9DF">
-                                <div class="card-body row">
-                                    <div class="col-md-4">
-                                        <i class="fa fa-x5 fa-arrow-left"></i>Back To Search Results
-                                        </div>
-                                   <div class="input-group col-md-5" style="text-align: right;">
-                                    <h2 class="col-md-12">Kunle Situ</h2><br>
-                                    <h5 class="col-md-12">3 Loans</h5><br>
-                                    <h4 class="col-md-12">BVN: 8964093554</h4><br>
-                                  </div>
-                                  <div class="col-md-2">
-                                      <i class="fa fa-user fa-x6"></i>
-                                  </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="card col-md-10 text-center mx-auto ">
+      <title>Backend Dashboard</title>
+  </head>
+  <style>
+      body{
+          background-color: #fff !important;
+      }
+      .input{
+          border-top-left-radius: 30px !important;
+          border-bottom-left-radius: 30px !important;
+      }
+      /* Styles for wrapping the search box */
 
+  .main {
+      width: 50%;
+      margin: 50px auto;
+  }
 
-                                <div class="container"></div>
-                                <div id="exTab3" class="container"> 
-                                <ul  class="nav nav-pills">
-                                            <li class="active">
-                                        <a  href="#1b" class="btn btn-success" data-toggle="tab">Credit Check</a>
-                                            </li>
-                                            <li><a href="#2b" class="btn btn-success" data-toggle="tab">Management</a>
-                                            </li>
-                                            <li><a href="#3b" class="btn btn-success" data-toggle="tab">Credit Report</a>
-                                            </li>
-                                        <li><a href="#4a" class="btn btn-success" data-toggle="tab">Due Diligence</a>
-                                            </li>
-                                            <li><a href="#4a" class="btn btn-success" data-toggle="tab">Funding</a>
-                                            </li>
-                                            <li><a href="#4a" class="btn btn-success" data-toggle="tab">Payment</a>
-                                            </li>
-                                        </ul>
+  /* Bootstrap 4 text input with search icon */
 
-                                            <div class="tab-content clearfix">
-                                              <div class="tab-pane active" id="1b">
-                                          <table class="table">
-                                              <thead class="head">
-                                                <tr>
-                                                  
-                                                  <th scope="col">BVN</th>
-                                                  <th scope="col">Loan ID</th>
-                                                  <th scope="col">Applicant Name</th>
-                                                  <th scope="col">Loan Type</th>
-                                                  <th scope="col">Mobile Number</th>
-                                                  <th scope="col">Application Date</th>
-                                                </tr><hr>
-                                              </thead>
-                                              <hr>
-                                              <tbody>
-                                                <tr>
-                                                  
-                                                  <td>8964093534</td>
-                                                  <td>SE00021</td>
-                                                  <td>Kunle Situ</td>
-                                                  <td>Salary Earner</td>
-                                                  <td>08033285730</td>
-                                                  <td>24 / 11 / 2018</td>
+  .has-search .form-control {
+      padding-left: 2.375rem;
+  }
 
-                                                </tr>
-                                                <tr>
-                                                  <td>8964093534</td>
-                                                  <td>SE00021</td>
-                                                  <td>Kunle Situ</td>
-                                                  <td>Salary Earner</td>
-                                                  <td>08033285730</td>
-                                                  <td>24 / 11 / 2018</td>
-                                                </tr>
-                                                <tr>
-                                                <td>8964093534</td>
-                                                  <td>SE00021</td>
-                                                  <td>Kunle Situ</td>
-                                                  <td>Salary Earner</td>
-                                                  <td>08033285730</td>
-                                                  <td>24 / 11 / 2018</td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                                </div>
-                                                <div class="tab-pane" id="2b">
-                                          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
-                                                </div>
-                                        <div class="tab-pane" id="3b">
-                                          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-                                                </div>
-                                          <div class="tab-pane" id="4a">
-                                          <h3>We use css to change the background color of the content to be equal to the tab</h3>
-                                                </div>
-                                            </div>
-                                  </div>
+  .has-search .form-control-feedback {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.375rem;
+      height: 5.375rem;
+      line-height: 3.375rem;
+      text-align: center;
+      pointer-events: none;
+      color: #D9261B;
+  }
+  .btn{
+      background-color: #9AA7B5 !important;
+      color: #fff !important;
+      border-color: #9AA7B5 !important;
+  }
+  [type=reset], [type=submit], button, html [type=button] {
+      -webkit-appearance: none !important;
+      cursor: pointer;
 
+  }
+  .table thead th,
+  .table th {
+      color: #fff !important;
+      background-color: #61768E;
+      font-family: 'Circular Std Medium';
+  }
+      .fa-x6{
+          font-size: 100px;
+      }
 
-                            </div>
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+    margin-right: 5px;
+  }
+  .active{
+      background-color: white !important;
+      color: #61768E !important;
+  }
+  .actively{
+      background-color: #3A5573 !important;
+      color: #EDF3F6 !important;
+  }
+  .heading{
+    color: #ffffff !important;
+    margin-top: 20px;
+    text-align: left;
+  }
+  .approve-btn{
+    color: #FFFFFF;
+    background-color: #4CAF50;
+    border: none;
+      display: inline-block;
+      padding: 8px 16px;
+      vertical-align: middle;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      background-color: inherit;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+  }
+td{
+  border-radius: 5px;
+}
 
-                            <div class="card col-md-10 text-center mx-auto ">
-                                
-                                <div class="card-body row">
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    
-            </div>
-            
-        </div>
+  </style>
+
+  <body>
+
+      <div class="dashboard-main-wrapper">
+
+         {%include 'dashboard/navbar.html' %}
+
+         {%include 'dashboard/sidebar.html' %}
        
-    </div>
-    
+          <div class="dashboard-wrapper">
+              <div class="dashboard-ecommerce">
+                  <div class="container-fluid dashboard-content ">
+                      <!-- ============================================================== -->
+                      <!-- pageheader  -->
+                      <!-- ============================================================== -->
+                      <div class="row">
+                          <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                              <div class="card " style="margin-top: 20px; background-color: #D6D9DF">
+                                  <div class="card-body row">
+                                      <div class="col-md-4">
+                                          <i class="fa fa-x5 fa-arrow-left"></i>Back To Search Results
+                                          </div>
+                                     <div class="input-group col-md-5" style="text-align: right;">
+                                      <h2 class="col-md-12">Kunle Situ</h2><br>
+                                      <h5 class="col-md-12">3 Loans</h5><br>
+                                      <h4 class="col-md-12">BVN: 8964093554</h4><br>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <i class="fa fa-user fa-x6"></i>
+                                    </div>
+                                  </div>
+                                  </div>
+                              </div>
+                              <div class="card col-md-12 text-center mx-auto ">
+                                  <div class="container"></div>
+                                  <div id="exTab3" class="container"> 
+                                  <ul  class="nav nav-pills">
+                                              <li class="active">
+                                          <a  href="#1b" class="btn btn-success active" data-toggle="tab">Credit Check</a>
+                                              </li>
+                                              <li><a href="#2b" class="btn btn-success" data-toggle="tab">Management</a>
+                                              </li>
+                                              <li><a href="#3b" class="btn btn-success" data-toggle="tab">Credit Report</a>
+                                              </li>
+                                          <li><a href="#4a" class="btn btn-success" data-toggle="tab">Due Diligence</a>
+                                              </li>
+                                              <li><a href="#4a" class="btn btn-success" data-toggle="tab">Funding</a>
+                                              </li>
+                                              <li><a href="#4a" class="btn btn-success" data-toggle="tab">Payment</a>
+                                              </li>
+                                          </ul>
 
-    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
-    <!-- bootstap bundle js -->
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
-    <!-- slimscroll js -->
-    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
-    <!-- main js -->
-    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
-    <!-- chart chartist js -->
-    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
-    <!-- sparkline js -->
-    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
-    <!-- morris js -->
-    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
-    <!-- chart c3 js -->
-    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
-    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+                                              <div class="tab-content clearfix">
+                                              <div class="tab-pane active" id="1b">
+                                            <table class="table" >
+                                                <thead class="head">
+                                                  <tr>
+                                                    
+                                                    <th scope="col">Loan ID</th>
+                                                    <th scope="col">Loan Type</th>
+                                                    <th scope="col">Loan Amount</th>
+                                                    <th scope="col">Loan Officer</th>
+                                                    <th scope="col">Application Date</th>
+                                                    <th scope="col">Loan Details</th>
+                                                    <th scope="col">Loan Status</th>
+                                                    
+                                                  </tr><hr>
+                                                </thead>
+                                                <hr>
+                                                <tbody>
+                                                  <tr>
+                                                    
+                                                    <td>SE00021</td>
+                                                    <td>Salary Earner</td>
+                                                    <td>₦ 1,000,000</td>
+                                                    <td>Elizabeth Eke</td>
+                                                    <td>24 / 11 / 2018</td>
+                                                    <td><a href="#">View</a> </td>
+                                                    <td>Pending</td>
+                                                    
 
-</body>
- 
-</html>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>SE00021</td>
+                                                    <td>Salary Earner</td>
+                                                    <td>₦ 1,000,000</td>
+                                                    <td>Elizabeth Eke</td>
+                                                    <td>24 / 11 / 2018</td>
+                                                    <td><a href="#">View</a> </td>
+                                                    <td>Pending</td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>SE00021</td>
+                                                    <td>Salary Earner</td>
+                                                    <td>₦ 1,000,000</td>
+                                                    <td>Elizabeth Eke</td>
+                                                    <td>24 / 11 / 2018</td>
+                                                    <td><a href="#">View</a> </td>
+                                                    <td>Pending</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                                  </div>
+                                                  <div class="tab-pane" id="2b" style="margin-bottom: 20px;"><br>
+                                                    <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">DOCUMENTS SUBMITTED</h3></div>
+                                                      <div class="col-md-6 heading">
+                                                        <p style="text-align: right">Last edited by Kunle Adeogba on 28/05/2019</p>
+                                                      </div>
+                                                    </div>
+                                            <table class="table table-striped" style="text-align: left">
+                                                <hr>
+                                                <tbody>
+                                                  <tr>
+                                                    
+                                                    <td>EMPLOYMENT LETTER</td>
+                                                    <td>LetterofEmployment.pdf</td>
+                                                    <td><button class="approve-btn btn-success">Approve</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                   
+                                                    
+
+                                                  </tr>
+                                                  <tr>
+                                                    <td>6 MONTHS SALARY ACCOUNT STATEMENT</td>
+                                                    <td>Statement_2018.pdf</td>
+                                                    <td><button class="approve-btn btn-success">Approve</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>GOVERNMENT ID</td>
+                                                    <td>PhotoId.jpeg</td>
+                                                    <td><button class="approve-btn btn-success">Approve</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>UTILITY BILL</td>
+                                                    <td>Bill.pdf</td>
+                                                    <td><button class="approve-btn btn-success">Approve</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>PASSPORT PHOTOGRAPH</td>
+                                                    <td>DataPage.pdf</td>
+                                                    <td><button class="approve-btn btn-success">Approve</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+
+                                               <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">KNOW YOUR CUSTOMER</h3></div>
+                                                      <div class="col-md-6" style="margin-top: 10px;">
+                                                        <button class="btn btn-primary" style="background-color: #3A5573 !important;"><i class="fa fa-plus"></i>Add More Fields</button>
+                                                      </div>
+                                                    </div>
+                                            <table class="table table-striped" style="text-align: left">
+                                                <hr>
+                                                <tbody>
+                                                  <tr>
+                                                    
+                                                    <td><h3>Kunle Ojo Situ</h3></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                   
+                                                    
+
+                                                  </tr>
+                                                  <tr>
+                                                    <td>VISITED ON</td>
+                                                    <td>Kunlessitu@gmail.com</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>RESIDENTIAL ADDRESS</td>
+                                                    <td>Lagos</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>PHYSICAL DESCRIPTION OF RESIDENCE</td>
+                                                    <td>Lagos State</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>PHOTO OF RESIDENCE</td>
+                                                    <td>Residence.png</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>NAME OF PERSON(s) MET AT RESIDENCE</td>
+                                                    <td>Kunle and Adamu</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>STREET NAME</td>
+                                                    <td>Landiry Junction</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>SURROUNDING LANDMARK</td>
+                                                    <td>Hijab Moque</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Delete</button></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>NEAREST BUS STOP</td>
+                                                    <td>Lion Heart Motors</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr><br>
+                                                  <tr>
+                                                  <td>COMMENT</td>
+                                                    <td>03/03/2018</td>
+                                                    <td><button class="approve-btn btn-success">Edit</button></td>
+                                                    <td><button class="approve-btn btn-danger">Reject</button></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>OFFICER'S NAME</td>
+                                                    <td>Elizabeth</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>DATE</td>
+                                                    <td>03/03/2018</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>BUSINESS MANAGER</td>
+                                                    <td>Ajemobi Daniels</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+
+                                               <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <!-- <div class="col-md-6 heading"><p style="color: #fff; padding: 10px;">REPAYMENT REPORT <a class="btn btn-primary" style="background-color: #3A5573 !important;">INACTIVE</a></p></div>
+                                                      <div class="col-md-6" style="margin-top: 10px;">
+                                                        <p style="text-align: right;color: white">Last edited by Kunle Adeogba on 28/05/2019</p>
+                                                      </div> -->
+                                                      
+                                                    </div>
+                                                    <div class="">
+                                                        <!-- This section will be active once applicant's loan has been funded. -->
+                                                      
+                                                       <table class="table" >
+                                                      <thead class="head">
+                                                        <tr>
+                                                          
+                                                          <th scope="col">DUE DATE</th>
+                                                          <th scope="col">AMOUNT</th>
+                                                          <th scope="col">PRINCIPAL</th>
+                                                          <th scope="col">INTEREST</th>
+                                                          <th scope="col">LATE FEES</th>
+                                                          <th scope="col">BALANCE</th>
+                                                          <th scope="col">STATUS</th>
+                                                          
+                                                        </tr>
+                                                      </thead>
+                                                      
+                                                      <tbody>
+                                                        <tr>
+                                                          
+                                                          <td>02-JAN-2019</td>
+                                                          <td>122,190.00</td>
+                                                          <td>1,221,900.00</td>
+                                                          <td>103,000.00</td>
+                                                          <td>N/A</td>
+                                                          <td>1,099,710.00</td>
+                                                          <td>PAID 01-JAN-2019</td>
+                                                          
+
+                                                        </tr>
+                                                        <tr>
+                                                          <td>02-JAN-2019</td>
+                                                          <td>122,190.00</td>
+                                                          <td>1,221,900.00</td>
+                                                          <td>103,000.00</td>
+                                                          <td>N/A</td>
+                                                          <td>1,099,710.00</td>
+                                                          <td>PAID 01-JAN-2019</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>02-JAN-2019</td>
+                                                          <td>122,190.00</td>
+                                                          <td>1,221,900.00</td>
+                                                          <td>103,000.00</td>
+                                                          <td>N/A</td>
+                                                          <td>1,099,710.00</td>
+                                                          <td>PAID 01-JAN-2019</td>
+                                                        </tr>
+                                                        <td>02-JAN-2019</td>
+                                                          <td>122,190.00</td>
+                                                          <td>1,221,900.00</td>
+                                                          <td>103,000.00</td>
+                                                          <td>N/A</td>
+                                                          <td>1,099,710.00</td>
+                                                          <td>PAID 01-JAN-2019</td>
+                                                        </tr>
+                                                        <td>02-JAN-2019</td>
+                                                          <td>122,190.00</td>
+                                                          <td>1,221,900.00</td>
+                                                          <td>103,000.00</td>
+                                                          <td>N/A</td>
+                                                          <td>1,099,710.00</td>
+                                                          <td>PAID 01-JAN-2019</td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    </div>
+
+                                                  </div>
+                                                  <!--- Bank Statement -->
+                                          <div class="tab-pane" id="3b">
+                                            <div id="exTab3" class="container"> 
+                                            <ul  class="nav nav-pills" style="margin-top: 10px;">
+                                              <li class="active">
+                                          <a  href="#4ab" class="btn btn-success" data-toggle="tab">Credit Check</a>
+                                              </li>
+                                              <li><a href="#4bb" class="btn btn-success actively" data-toggle="tab"> Cash Flow</a>
+                                              </li>
+                                             
+                                          </ul>
+
+                                              <div class="tab-content clearfix">
+                                            <div class="tab-pane" id="4ab">
+                                            <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">CREDIT REPORT </h3></div>
+                                                      <div class="col-md-6 heading">
+                                                        <p style="text-align: right">Generated on 28/05/2019</p>
+                                                      </div>
+                                                    </div>
+
+                                                     <table class="table table-striped" style="text-align: left">
+                                                      <tbody>
+                                                        <tr>
+                                                          
+                                                          <td>NAME</td>
+                                                          <td style="text-align:right;">KUNLE OJO SITU</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                          <td>FIRST NAME</td>
+                                                          <td style="text-align:right;">KUNLE</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>LAST NAME</td>
+                                                          <td style="text-align:right;">SITU</td>
+                                                        </tr>
+                                                        <td>DATE OF BIRTH</td>
+                                                          <td style="text-align:right;">13-APR-1977</td>
+                                                        </tr>
+                                                        <td>GENDER</td>
+                                                          <td style="text-align:right;">MALE</td>
+                                                        </tr>
+                                                        <tr>
+                                                          
+                                                          <td>CITIZENSHIP</td>
+                                                          <td style="text-align:right;">NIGERIAN</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                          <td>RUID</td>
+                                                          <td style="text-align:right;">8984406940674609453</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>CREDIT SCORE</td>
+                                                          <td style="text-align:right;">650</td>
+                                                        </tr>
+                                                        <td>CREDIT RATING</td>
+                                                          <td style="text-align:right;">GOOD</td>
+                                                        </tr>
+                                                        <td>REASON 1</td>
+                                                          <td style="text-align:right;">There is delinquency on the accounts on credit report.</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>REASON 2</td>
+                                                          <td style="text-align:right;">Lack of recent revolving/charge account information on the credit report.</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>REASON 3</td>
+                                                          <td style="text-align:right;">Too few accounts on the credit report are currently paid as agreed.</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>BUREAU CURRENCY</td>
+                                                          <td style="text-align:right;">NGN</td>
+                                                        </tr>
+                                                        <td>OWNERSHIP TYPE</td>
+                                                          <td style="text-align:right;">AS BORROWER</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>TOTAL NUMBER OF CREDIT FACILITIES</td>
+                                                          <td style="text-align:right;">3</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>SANCTIONED AMOUNT</td>
+                                                          <td style="text-align:right;">0</td>
+                                                        </tr>
+                                                        <td>TOTAL OUTSTANDING</td>
+                                                          <td style="text-align:right;">194,286.00</td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+
+                                                    <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">ADDITIONAL INFORMATION </h3></div>
+                                                      <div class="col-md-6" style="margin-top: 10px;">
+                                                        <button class="btn btn-primary" style="background-color: #3A5573 !important;"><i class="fa fa-plus"></i>Add More Fields</button>
+                                                      </div>
+                                                    </div>
+
+                                                     <table class="table table-striped" style="text-align: left">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td>ANY OUTSTANDING LOANS</td>
+                                                          <td style="text-align:right;">YES</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>AMOUNT OUTSTANDING</td>
+                                                          <td style="text-align:right;">194,286.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>REMAINING TENURE</td>
+                                                          <td style="text-align:right;">4 MONTHS</td>
+                                                        </tr>
+                                                        <td>AVERAGE MONTHLY DEDUCTIBLE</td>
+                                                          <td style="text-align:right;">₦ 58,333.33</td>
+                                                        </tr>
+                                                        <td>AVAILABLE AVERAGE DEDUCTIBLE</td>
+                                                          <td style="text-align:right;">₦ 40,000.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>TENURE OF CURRENT LOAN</td>
+                                                          <td style="text-align:right;">18 MONTHS</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                          <td>TOTAL OVER LOAN TENURE</td>
+                                                          <td style="text-align:right;">₦ 1,000,000.00</td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+
+                                                    <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">CREDIT SCORE </h3></div>
+                                                      <div class="col-md-6" style="margin-top: 10px;">
+                                                        <button class="btn btn-primary" style="background-color: #86B68E !important;"><i class="fa fa-plus"></i> EDIT</button>
+                                                      </div>
+                                                    </div>
+                                                    <table class="table table-striped" style="text-align: left; margin-bottom: 20px;">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td>SCORE</td>
+                                                          <td style="text-align:right;">750</td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+
+
+                                                  </div>
+                                            
+                                            <div class="tab-pane active" id="4bb">
+                                            <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><h3 style="color: #fff;">BANK STATEMENT</h3></div>
+                                                      <div class="col-md-6 heading">
+                                                        <p style="text-align: right">Last edited by Kunle Adeogba on 28/05/2019</p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                  <img class="img-responsive col-md-12" src="{% static 'img/statement.png' %}">
+                                                  </div>
+                                            <table class="table table-striped" style="text-align: left">
+                                                <thead class="head">
+                                                        <tr>
+                                                          
+                                                          <th scope="col">DATA SHEET</th>
+                                                          <th scope="col">TOTAL CREDIT</th>
+                                                          <th scope="col">TOTAL DEBIT</th>
+                                                          <th scope="col">TOTAL BALANCE</th>
+                                                          <th scope="col">ACCESSIBLE FUND</th>
+                                                        </tr>
+                                                      </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    
+                                                    <td>MONTH 1</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+
+                                                  </tr>
+                                                  <tr>
+                                                    <td>MONTH 2</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td>MONTH 3</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>MONTH 4</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>MONTH 5</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>MONTH 6</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+                                                   <tr>
+                                                  <td>MONTH 7</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                    <td>₦ 100,000.00</td>
+                                                  </tr>
+
+                                                </tbody>
+
+                                              </table>
+                                              <a href="#" class="btn-success btn" style="float: right;">Edit</a>
+
+                                               <div class="row col-md-12" style="background-color: #61768E; margin:20px;">
+                                                      <div class="col-md-6 heading"><p style="color: #fff; padding: 10px;">CASH FLOW </p></div>
+                                                      <div class="col-md-6" style="margin-top: 10px;">
+                                                        <button class="btn btn-primary" style="background-color: #3A5573 !important;"><i class="fa fa-plus"></i>Add More Fields</button>
+                                                      </div>
+                                                      
+                                                    </div>
+                                                    <div class="">
+                                                        <!-- This section will be active once applicant's loan has been funded. -->
+                                                       <table class="table" style="text-align: left">
+                                                      <tbody>
+                                                        <tr> 
+                                                          <td>AVERAGE ACCESSIBLE FUND</td>
+                                                          <td>₦ 100,000.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>1/3 OF AVERAGE ACCESSIBLE FUND</td>
+                                                          <td>₦ 33,333.33</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>LOAN TENURE</td>
+                                                          <td>6 MONTHS</td>
+                                                        </tr>
+                                                        <td>SUGGESTED LOAN AMOUNT</td>
+                                                          <td>₦ 199,999.98</td>
+                                                        </tr>
+                                                        <td>APPLIED LOAN AMOUNT</td>
+                                                          <td>₦ 100,000.00</td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    </div>
+                                                    <div class="col-md-4 mx-auto text-center">
+                                                      <a href="#" class="approve-btn btn-success">Accept</a>
+                                                      <a href="#" class="approve-btn btn-danger">Reject</a>
+                                                    </div>
+                                                  </div>
+                                                  </div>
+                                              </div>
+                                    </div>
+
+
+                              </div>
+  <!-- 
+                              <div class="card col-md-10 text-center mx-auto ">
+                                  
+                                  <div class="card-body row">
+                                    
+                                  </div>
+                              </div> -->
+                          </div>
+                      </div>
+                     
+                      
+              </div>
+              
+          </div>
+         
+      </div>
+      
+
+      <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+      <!-- bootstap bundle js -->
+      <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+      <!-- slimscroll js -->
+      <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+      <!-- main js -->
+      <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+      <!-- chart chartist js -->
+      <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+      <!-- sparkline js -->
+      <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+      <!-- morris js -->
+      <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+      <!-- chart c3 js -->
+      <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+      <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+
+  </body>
+   
+  </html>
