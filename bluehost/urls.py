@@ -41,7 +41,7 @@ urlpatterns = [
     #dashboard
     path('bluecredit/', backendviews.index, name='Home'),
     path('results/', backendviews.results, name='results'),
-    path('personal/', backendviews.personal, name='personal'),
+    path('applicant/', backendviews.personal, name='applicant'),
     path('loandetails/', backendviews.loandetails, name='loandetails'),
 
 
