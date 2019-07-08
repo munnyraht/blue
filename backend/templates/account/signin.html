@@ -1,4 +1,5 @@
  {% load staticfiles %}
+ {% load crispy_forms_tags %}
 
 <html lang="en">
 <head>
@@ -90,7 +91,7 @@ a{
                         <div class="card-body">
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}                              
-                                    <div class="form-group row">
+                                   <!-- <div class="form-group row">
                                         <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                         <div class="col-md-4">
                                             <input type="email" id="email_address" class="form-control" name="email-address">
@@ -102,11 +103,10 @@ a{
                                         <div class="col-md-4">
                                             <input type="password" id="password" class="form-control" name="email-password">
                                         </div>
-                                    </div>
-                               
-
+                                      </div>
                                 </div>                           
-                        </div>
+                        </div> -->
+                        {{form|crispy}}
                         <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-success text-center" style=" margin-top: 20px;">
                                         REGISTER

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'backend',
     'modelcluster',
     'taggit',
+    'crispy_forms',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -90,12 +91,8 @@ WSGI_APPLICATION = 'bluehost.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'bluehost',
-        'USER': 'root',
-        'PASSWORD': 'megatron007',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
