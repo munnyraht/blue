@@ -74,6 +74,11 @@ def acknowledgement(request):
 	template = 'acknowledgement/acknowledgement.html'
 	return render(request, template, context)
 
+def declaration(request):
+	context = {}
+	template = 'declaration/declaration.html'
+	return render(request, template, context)
+
 # def create(request):
 # 	if request.method == 'POST':
 # 		bvn = request.POST['bvn']

@@ -60,25 +60,33 @@ def pending(request):
 	context = {}
 	template = 'account/pending.html'
 	return render(request, template, context)
-
+@login_required
 def index(request):
+	users = user.objects.all()
 	context = {}
 	template = 'dashboard/index.html'
-	return render(request, template, context)
+	return render(request, template,{'users':users} )
 
-
+@login_required
 def results(request):
 	context = {}
 	template = 'dashboard/results.html'
 	return render(request, template, context)
 
-
+@login_required
 def personal(request):
 	context = {}
 	template = 'dashboard/personal.html'
 	return render(request, template, context)
 
+@login_required
 def loandetails(request):
 	context = {}
 	template = 'dashboard/loandetails.html'
+	return render(request, template, context)
+
+@login_required
+def salesreport(request):
+	context = {}
+	template = 'dashboard/salesreport.html'
 	return render(request, template, context)

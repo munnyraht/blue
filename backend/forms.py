@@ -1,6 +1,7 @@
 from django import forms
 from .models  import user
 
+
 class loginForm(forms.Form):
 	EmailAddress = forms.CharField(
 			required = True,
