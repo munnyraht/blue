@@ -43,13 +43,18 @@ a{
     background-color: #86B68E !important;
     border-color: #86B68E!important;
 }
-
-    
 </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <title>BlueCredit Login</title>
+     <script>
+      {% if messages %}
+        {% for message in messages %}
+           alert(message);
+        {% endfor %}
+          {% endif %}
+     </script>
 </head>
 <body style="background-color: rgba(214, 217, 223, 0.4)">
 
@@ -89,16 +94,16 @@ a{
                         
 
                         <div class="card-body">
+                        
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}                              
-                                   <!-- <div class="form-group row">
+                                     <!--<div class="form-group row">
+                                    <div class="form-group row">
                                         <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                         <div class="col-md-4">
-                                            <input type="email" id="email_address" class="form-control" name="email-address">
                                         </div>
                                     </div>
 
-                                     <div class="form-group row">
                                         <label for="email_address" class="col-md-4 col-form-label text-md-right">Password</label>
                                         <div class="col-md-4">
                                             <input type="password" id="password" class="form-control" name="email-password">
@@ -106,6 +111,8 @@ a{
                                       </div>
                                 </div>                           
                         </div> -->
+
+                        
                         {{form|crispy}}
                         <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-success text-center" style=" margin-top: 20px;">

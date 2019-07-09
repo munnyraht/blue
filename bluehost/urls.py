@@ -32,6 +32,7 @@ urlpatterns = [
     url('nextofkin/', views.nextofkin, name='nextofkin'),
     url('otherdetails/', views.otherdetails, name='otherdetails'),
     url('summary/', views.summary, name='summary'),
+    url('logout/',backendviews.login,name='logout'),
 
     # Backend Urls 
     #Auth

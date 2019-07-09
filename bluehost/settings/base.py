@@ -85,6 +85,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bluehost.wsgi.application'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
