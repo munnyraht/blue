@@ -25,7 +25,7 @@ class RegisterForm(forms.Form):
     ConfirmPassword=forms.CharField(max_length=38,required=True,widget = forms.PasswordInput())
 
 class Bvn_number(forms.Form):
-    Email=forms.EmailField(required=True)
+    EmailAddress=forms.EmailField(required=True)
     Bvn_Number= forms.DecimalField(decimal_places=0, max_digits=11,required=True)
 
 

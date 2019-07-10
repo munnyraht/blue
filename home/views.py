@@ -70,10 +70,10 @@ def bvnerror(request):
 
 def verifybvn(request):
 	if (request.method=='POST'):
-		form=Bvn_number(request.GET)
+		form=Bvn_number(request.POST)
 		if form.is_valid():
 			userObj = form.cleaned_data
-			bvn_number = userObj['Bvn_number']
+			bvn_number = userObj['Bvn_Number']
 			email=userObj['EmailAddress']
 			response=get_bvn_details(bvn_number)
 			if response['status']!= 'success':

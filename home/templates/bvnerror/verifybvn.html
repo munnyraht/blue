@@ -314,21 +314,13 @@
 			<section class="testimonials text-center">
 					<div class="card row">
 					<div class="card-body">
-						<div class="col-md-4 mx-auto" style="height: 100px;">
-							<form method="GET", > 
+						<div class="col-md-4 mx-auto">
+							<form method="POST"> 
 									{% csrf_token %} 
-							<!-- <div class="input-group mb-3 row" id="display-bvn">
-								
-								<label for="bvn" class="col-md-2" style="font-size: 20px;">BVN</label>
-								<input type="text" value="" class="form-control col-md-8" id="bvn" placeholder="98765432109" aria-label="" aria-describedby="basic-addon2">
-								<div class="input-group-append">
-									<button class="btn btn-success" id="retrieve-bvn"  type="submit"> Submit</button>
-								</div>
-
-							</div>-->
+							
 							{{form|crispy}}
 							<div class="card" style="padding: 20px; background-color: rgba(217, 38, 27, 0.2)">
-							<button class="btn btn-success" id="submit" type="submit">GET DATA</button>
+							<button class="btn btn-success" type="submit">GET DATA</button>
 							</div>
 							</form> 
 						</div>
@@ -337,7 +329,7 @@
 				
 	
 				
-				<div class="col-md-4 mx-auto" style="margin-bottom: 20px;">
+				<!-- <div class="col-md-4 mx-auto" style="margin-bottom: 20px;"> -->
 					
 						<!-- <div class="card" style="padding: 20px; background-color: rgba(217, 38, 27, 0.2)">
 							<p>No Record Found!<br> Provide a valid Bank Verification Number.</p>
