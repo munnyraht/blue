@@ -52,9 +52,9 @@ def register(request):
 				messages.error(request, "Error")
 				return redirect('register')
 				#raise forms.ValidationError('Looks like a username with that email or password already exists')
-		else:
-			form = RegisterForm()
-			return render(request, 'account/signup.html', {'form' : form})
+	else:
+		form = RegisterForm()
+		return render(request, 'account/signup.html', {'form' : form})
 
 
 def pending(request):
