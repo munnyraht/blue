@@ -1,17 +1,20 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from home.models import HomeData
 from home.models import Create
 from home.models import Createnextofkin
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
-
+from backend.models import user, bvn_details
+from backend import views 
+from backend.forms import Bvn_number
+from home.functions import get_bvn_details
+from django.contrib import messages
 
 
 def home(request):
 	homedata = HomeData.objects.all()
-	context = {}
 	template = 'home/welcome_page.html'
 	return render(request, template, {'homedata': homedata})
 
@@ -59,13 +62,45 @@ def bvnerror(request):
 	template = 'bvnerror/bvnerror.html'
 	return render(request, template, context)
 
-def verifybvn(request):
-	context = {}
-	template = 'bvnerror/verifybvn.html'
-	return render(request, template, context)
+# def verifybvn(request):
+# 	form = Bvn_number()
+# 	context = {'form':form}
+# 	template = 'bvnerror/verifybvn.html'
+# 	return render(request, template, context)
 
-def bvnaccepted(request):
-	context = {}
+def verifybvn(request):
+	if (request.method=='POST'):
+		form=Bvn_number(request.GET)
+		if form.is_valid():
+			userObj = form.cleaned_data
+			bvn_number = userObj['Bvn_number']
+			email=userObj['EmailAddress']
+			response=get_bvn_details(bvn_number)
+			if response['status']!= 'success':
+				messages=messages()
+				messages.error(request, "something went wrong, try again")
+				return render(request,'bvnerror/verifybvn.html',{})
+			else:
+				bvn=response['data']['bvn']
+				first_name=response['data']['first_name']
+				last_name= response['data']['last_name']
+				middle_name=response['data']['middle_name']
+				date_of_birth=response['data']['date_of_birth']
+				phone_number=response['data']['phone_number']
+				registration_date=response['data']['registration_date']
+				enrollment_bank=response['data']['enrollment_bank']
+				enrollment_branch=response['data']['enrollment_branch']
+				bvn_details.objects.create(email=email,bvn=bvn,first_name=first_name,last_name=last_name,middle_name=middle_name,date_of_birth = date_of_birth, phone_number=phone_number, registration_date=registration_date,enrollment_bank=enrollment_bank, enrollment_branch=enrollment_branch)
+				return redirect('bvnerror/bvnaccepted.html', email=email)
+	else:
+		form = Bvn_number()
+		context = {'form':form}
+		template = 'bvnerror/verifybvn.html'
+		return render(request, template, context)
+
+
+def bvnaccepted(request,email):
+	context = {'email':email}
 	template = 'bvnerror/bvnaccepted.html'
 	return render(request, template, context)
 
