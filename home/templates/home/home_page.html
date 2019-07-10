@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% if user.is_authenticated %}
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
