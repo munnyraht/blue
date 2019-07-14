@@ -32,13 +32,21 @@ urlpatterns = [
     url('nextofkin/', views.nextofkin, name='nextofkin'),
     url('otherdetails/', views.otherdetails, name='otherdetails'),
     url('summary/', views.summary, name='summary'),
-    url('logout/',backendviews.login,name='logout'),
+    
+
+    #User Dashboard
+    url('creditcheck/', views.creditcheck, name='creditcheck'),
+    url('loanhistory/', views.loanhistory, name='loanhistory'),
+    url('repaymenthistory/', views.repaymenthistory, name='repaymenthistory'),
+    url('repaymenthistory_doc/',views.repaymenthistory_doc,name='repaymenthistory_doc'),
 
     # Backend Urls 
     #Auth
     path('login/', backendviews.login, name='login'),
+    # path('signup/', backendviews.signup, name='signup'),
     path('register/', backendviews.register, name='register'),
     path('pending/', backendviews.pending, name='pending'),
+    url('logout/',backendviews.login,name='logout'),
     #dashboard
     path('bluecredit/', backendviews.index, name='Home'),
     path('results/', backendviews.results, name='results'),

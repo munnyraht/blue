@@ -1,0 +1,138 @@
+ {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/f_dashboard.css' %}">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <title>Loan History</title>
+
+</head>
+<body>
+  {%include 'user_dashboard/nav.html' %}
+
+
+  <div class="container-fluid">
+
+    <div class="row" style="background-color: #E0E0E0;">
+      <div class="col-1"></div>
+      <div class="col-8 p-3 d-flex" style="padding-top: 10% !important;">
+        <div class="p-2 col-md-4 col-sm-6">
+          <div class="salary-card">
+            <p> <span class="salary-earner">Salary Earner</span>   <br>
+              <span class='loan-id'>Loan ID: 8583846</span></p>
+              <p class='salary-card-text'>In Progress</p>
+              <div class="bar">
+                <div class="in-progress"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 col-md-4 col-sm-6">
+            <div class="salary-card">
+              <p> <span class="salary-earner">Salary Earner</span>   <br>
+                <span class='loan-id'>Loan ID: 8583846</span></p>
+                <p class='salary-card-text'>Approved</p>
+                <div class="bar">
+                  <div class="completed"></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 col-md-4 col-sm-6">
+              <div class="salary-card">
+                <p> <span class="salary-earner">Salary Earner</span>   <br>
+                  <span class='loan-id'>Loan ID: 8583846</span></p>
+                  <p class='salary-card-text'>Approved</p>
+                  <div class="bar">
+                    <div class="completed"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='col-3 p-0 bg-dark' style='display: block;'>
+              <div class='side-menu'>Credit Check</div>
+              <div class='side-menu bg-light' style="color: black">Loan History</div>
+              <div class='side-menu'>Repayment History</div>
+              <div class='side-menu'>Loan Application</div>
+              <div class='side-menu'>Funding</div>
+              <div class='side-menu'>Messages</div>
+              <div class='side-menu'>Settings</div>
+              <div class='side-menu'>FAQ</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1" style="background-color: #E0E0E0"> </div>
+            <div class="col-9 p-3"> 
+              <div> 
+                <div class="bg-dark text-center p-1"> 
+                  <p class=" font-weight-bold pt-1" style="color: white; font-size:1.5rem;"> Loan History</p> 
+                </div>
+              </div>
+              <div style="padding: 0.5rem; background-color: #E0E0E0; box-shadow:2px 5px #ecf2f9;" class="scrolling-wrapper">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th scope="col">Loan ID</th>
+                      <th scope="col">Posting Date</th>
+                      <th scope="col">Due Date</th>
+                      <th scope="col">Principal</th>
+                      <th scope="col">Interest</th>
+                      <th scope="col">Late Fees</th>
+                      <th scope="col">Total Payment</th>
+                      <th scope="col">Repayment History</th>
+                      <th scope="col">Loan Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-top: 3px #e98a85 solid !important;">
+                      <td scope="row">8583846</td>
+                      <td> 01/08/2018</td>
+                      <td> 01/11/2019</td>
+                      <td> 750,000</td>
+                      <td> 85,000</td>
+                      <td> n/A</td>
+                      <td> 835,000</td>
+                      <td class='blue'> View</td>
+                      <td class='blue'> View</td>
+                    </tr>
+                    <tr>
+                      <td scope="row">8583846</td>
+                      <td> 01/08/2018</td>
+                      <td> 01/11/2019</td>
+                      <td> 750,000</td>
+                      <td> 85,000</td>
+                      <td> n/A</td>
+                      <td> 835,000</td>
+                      <td class='blue'> View</td>
+                      <td class='blue'> View</td>
+                    </tr>
+                    <tr>
+                      <td>8583846</td>
+                      <td> 01/08/2018</td>
+                      <td> 01/11/2019</td>
+                      <td> 750,000</td>
+                      <td> 85,000</td>
+                      <td> n/A</td>
+                      <td> 835,000</td>
+                      <td class='blue'> View</td>
+                      <td class='blue'> View</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col" style="background-color: #E0E0E0"> </div>
+            
+
+            
+          </div>
+        </div>
+
+      </body>
+      </html>

@@ -1,0 +1,247 @@
+.side-menu{
+font-size: 1rem;
+padding:1rem;
+color:white;
+border-bottom: 1px solid grey;
+border-left: 1px solid grey;
+
+}
+
+body{
+    font-family: adobe-clean, sans-serif;
+}
+.salary-card{
+ background-color: #e98a85 ;
+ border-radius: 1rem;
+ padding: 15px;
+ text-align: center;
+ padding-top: 1.5rem !important;
+ 
+}
+.nav-menu{
+    font-weight: 600;
+    color: black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: block;
+    font-size: 1.2rem;
+    
+}
+.in-progress{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 9rem;
+    height: 1rem;
+    align-self: center;
+}
+
+.bar{
+    border-radius:10px;
+    background-color: white;
+    width: 10rem;
+    height: 1rem;
+    margin: 7%;
+    align-self: center;
+
+}
+.completed{
+    border-radius:5px;
+    background-color: #76943A;
+    width: 10rem;
+    height: 1rem;
+
+}
+.salary-card-text{
+    font-weight: 800;
+    font-size: 1.5rem;
+    
+}
+.salary-earner{
+    color:grey;
+    font-size: 0.8rem;
+}
+.loan-id{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.title{
+    font-weight: 600;
+}
+td{
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
+.blue{
+    color:rgb(152, 152, 216);
+}
+@media screen and (max-width: 992px) {
+    .nav-menu{
+        font-size:0.8rem;
+        border-bottom: 1px white solid;
+        color: white;
+        padding: 0.5rem;
+    }
+    .bar2{
+        margin-left: 20%;
+        width:6rem;
+    }
+
+    .menu-screen{
+        background-color:grey;
+    }
+    .salary-card-text{
+        font-weight: 800;
+        font-size: 1rem;
+  }
+  .bar{
+    border-radius:10px;
+    background-color: white;
+    width: 4.5rem;
+    height: 1rem;
+    margin: 4%;
+    margin-right:0.2rem;
+    margin-left:10px;
+  }
+  
+  .in-progress{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 3.5rem;
+    height: 1rem;
+    
+}
+.in-progress2{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 5rem;
+    height: 1rem;
+}
+.completed{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 4.5rem;
+    height: 1rem;
+    
+}
+.completed1{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 3.5rem;
+    height: 1rem;
+}
+}
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.text-perct{
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+}
+.nav-border{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.credit-card{
+        background-color: #e98a85 ;
+        border-radius: 1rem;
+        padding: 0px;
+        text-align: center;
+        
+}
+.line{
+    padding:0 5rem;
+    border-top: #e98a85 1px solid;
+}
+.circle{
+    width: 12rem;
+    border-radius: 50rem;
+    background-color: white;
+    height: 12rem;
+    align-self: center;
+}
+
+.dp{
+    display: flex;
+}
+
+@media screen and (max-width: 660px) {
+    .dp{
+        display: inherit;
+    }
+    .completed1{
+        border-radius:10px;
+        background-color: #76943A;
+        width: 6rem;
+        height: 1rem;
+        margin-left: 25%;
+    }
+
+}
+    
+
+.completed1{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 5rem;
+    height: 1rem;
+    margin-left: 20%;
+}
+
+.salary-card-text1{
+    font-weight: 800;
+    font-size: 1rem;
+
+}
+
+.in-card{
+    position: relative;
+    background-color: #D6D9DF;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+}
+.salary-card-sm{
+    background-color: #e98a85;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top:1rem; 
+    width: 50%;"
+}
+.bar2{
+    margin-left: 20%;
+    width:10rem;
+}
+.in-progress2{
+    border-radius:10px;
+    background-color: #76943A;
+    width: 9rem;
+    height: 1rem;
+}
+
+.submitted-pad{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    background-color: #86CB00; 
+    border-radius: 10px;
+     color: white;
+     font-size: 0.9rem;
+
+}
+.view{
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 10px;
+     color: #717376;
+     font-size: 0.8rem;
+     background-color: #D6D9DF;
+     
+}

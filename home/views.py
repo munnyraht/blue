@@ -161,3 +161,24 @@ def createnextofkin(request):
     return redirect('acknowledgement/acknowledgement.html')
 
 
+def creditcheck(request):
+	context = {}
+	template = 'user_dashboard/creditcheck.html'
+	return render(request, template, context)
+
+
+def loanhistory(request):
+	context = {}
+	template = 'user_dashboard/loanhistory.html'
+	return render(request, template, context)
+
+
+def repaymenthistory(request):
+	context = {}
+	template = 'user_dashboard/repaymenthistory.html'
+	return render(request, template, context)
+
+def repaymenthistory_doc(request):
+	context = {}
+	template = 'user_dashboard/repaymenthistory_doc.html'
+	return render(request, template, context)
