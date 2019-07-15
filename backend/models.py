@@ -9,7 +9,9 @@ class user(models.Model):
     EmailAddress=models.EmailField(null=True)
     MobileNumber=models.DecimalField(decimal_places=0, max_digits=11,null=True)
     Password=models.CharField(max_length=38,null=True)
+    active = models.CharField(max_length=100, default='pending')
     ConfirmPassword=models.CharField(max_length=38,null=True)
+    Created = models.DateTimeField(auto_now = True,)
 
 class bvn_details(models.Model):
     email=models.EmailField(null=True)

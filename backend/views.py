@@ -15,9 +15,10 @@ def login(request):
 			obj=form.cleaned_data
 			email=obj['EmailAddress']
 			password=obj['Password']
-			if (user.objects.filter(EmailAddress=email).exists() and user.objects.filter(Password=password).exists()):
+			if (user.objects.filter(EmailAddress=email).exists()  and user.objects.filter(Password=password).exists()):
 				template = '../bluecredit'
 				return redirect(template)
+
 			else:
 				messages.error(request, "Error")
 				return redirect('login')
@@ -29,6 +30,7 @@ def login(request):
 
 def register(request):
 	if request.method == 'POST':
+		messages.info(request, 'Your information was sent successfully!')
 		form = RegisterForm(request.POST)
 		if form.is_valid():
 			userObj = form.cleaned_data
@@ -46,12 +48,11 @@ def register(request):
 				context = {
 					'form':form
 	              }
-				template='../bluecredit'
+				template='../pending'
 				return redirect (template)
 			else:
 				messages.error(request, "Error")
 				return redirect('register')
-				#raise forms.ValidationError('Looks like a username with that email or password already exists')
 	else:
 		form = RegisterForm()
 		return render(request, 'account/signup.html', {'form' : form})
@@ -61,6 +62,7 @@ def pending(request):
 	context = {}
 	template = 'account/pending.html'
 	return render(request, template, context)
+
 
 def index(request):
 	context = {}

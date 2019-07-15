@@ -4,14 +4,78 @@ from home.models import HomeData
 from home.models import Create
 from home.models import Createnextofkin
 from django.http import HttpResponse
+
 # from django.core.mail import send_mail
 from django.conf import settings
 from backend.models import user, bvn_details
 from backend import views 
+from home.models import Personaldetails
 from backend.forms import Bvn_number
 from home.functions import get_bvn_details
 from django.contrib import messages
+from django.contrib.auth.models import User 
+from django.views import View
 
+from django.http import JsonResponse
+from home.forms import ContactForm
+from home.forms import PersonalDetailsForm
+
+
+class ContactAjax(View):
+	form_class = ContactForm
+	template_name = "contact.html"
+
+	def get(self, *args, **kwargs):
+		form = self.form_class()
+		return render(self.request, self.template_name, {"contactForm": form})
+
+	def post(self, request):
+	        form = ContactForm(request.POST)
+	        if form.is_valid():
+	            post = form.save(commit=False)
+	            # post.user = request.user
+	            post.save()
+
+	            # text = form.cleaned_data['post']
+	            form = ContactForm()
+	            return redirect('home')
+
+	        args = {'form': form, 'text': text}
+	        return render(request, self.template_name, args)
+
+
+class Personal(View):
+	form_class = PersonalDetailsForm
+	template_name = "paymentinfo/paymentinfo.html"
+
+	def get(self, *args, **kwargs):
+		form = self.form_class()
+		return render(self.request, self.template_name, {"PersonalDetailsForm": form})
+
+	def post(self, request):
+	        form = PersonalDetailsForm(request.POST)
+	        # if request.method == 'POST':
+        
+	        if form.is_valid():
+	            post = form.save(commit=False)
+	            # post.user = request.user
+	            post.save()
+
+	            # text = form.cleaned_data['post']
+	            form = PersonalDetailsForm()
+
+	            return redirect('nextofkin')
+
+	        args = {'form': form, 'text': text}
+	        return render(request, self.template_name, args)
+
+
+#FBV
+def contactPage(request):
+	form = ContactForm()
+	return render(request, "contact.html", {"contactForm": form})
+
+    
 
 def home(request):
 	homedata = HomeData.objects.all()
@@ -70,16 +134,19 @@ def bvnerror(request):
 
 def verifybvn(request):
 	if (request.method=='POST'):
-		form=Bvn_number(request.POST)
+		form=Bvn_number(request.POST or None)
+
 		if form.is_valid():
 			userObj = form.cleaned_data
 			bvn_number = userObj['Bvn_Number']
 			email=userObj['EmailAddress']
 			response=get_bvn_details(bvn_number)
+			
 			if response['status']!= 'success':
-				messages=messages()
+				
 				messages.error(request, "something went wrong, try again")
-				return render(request,'bvnerror/verifybvn.html',{})
+
+				return render(request,'bvnerror/verifybvn.html',{'form': form})
 			else:
 				bvn=response['data']['bvn']
 				first_name=response['data']['first_name']
@@ -109,17 +176,6 @@ def acknowledgement(request):
 	template = 'acknowledgement/acknowledgement.html'
 	return render(request, template, context)
 
-# def create(request):
-# 	if request.method == 'POST':
-# 		bvn = request.POST['bvn']
-
-
-# 		Create.objects.create(
-# 			bvn = bvn
-			
-# 		)
-
-# 		return HttpResponse('')
 
 
 def create(request):
@@ -140,7 +196,7 @@ def createnextofkin(request):
 
     	)
     createnextofkin.save()
-    return redirect('acknowledgement/acknowledgement.html')
+    return render('acknowledgement/acknowledgement.html')
 
 
 def creditcheck(request):
@@ -164,3 +220,31 @@ def repaymenthistory_doc(request):
 	context = {}
 	template = 'user_dashboard/repaymenthistory_doc.html'
 	return render(request, template, context)
+
+
+
+def personaldetails(request):
+        if request.method == 'POST':
+            if request.POST.get('firstname') and request.POST.get('email'):
+                personaldetails=Personaldetails()
+                personaldetails.firstname= request.POST.get('firstname')
+                personaldetails.surname= request.POST.get('surname')
+                personaldetails.middlename= request.POST.get('middlename')
+                personaldetails.mobilephone= request.POST.get('mobilephone')
+                personaldetails.title= request.POST.get('title')
+                personaldetails.dateofbirth= request.POST.get('dateofbirth')
+                personaldetails.maritalstatus= request.POST.get('maritalstatus')
+                personaldetails.email= request.POST.get('email')
+                personaldetails.timeataddress= request.POST.get('timeataddress')
+                personaldetails.other= request.POST.get('other')
+                personaldetails.numberofdependents= request.POST.get('numberofdependents')
+                personaldetails.placeofbirth= request.POST.get('placeofbirth')
+                personaldetails.homeaddress= request.POST.get('homeaddress')
+                personaldetails.save()
+                
+                return render(request, 'paymentinfo/paymentinfo.html')  
+
+        else:
+                return render(request,'paymentinfo/nextofkin.html')
+
+

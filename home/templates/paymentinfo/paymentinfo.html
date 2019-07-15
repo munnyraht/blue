@@ -322,7 +322,7 @@
 							<h5>BVN &nbsp; &nbsp; 98765432109</h5>
 						</div>
 					</div>
-					<div class="col-md-4 mx-auto row">
+					<!-- <div class="col-md-4 mx-auto text-center row">
 						<div class="col-md-6">
 							<h6>Name</h6>
 							<h6>Surname</h6>
@@ -335,11 +335,17 @@
 							<h6>Doe</h6>
 							<h6>27/05/1963</h6>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="col-md-12 mx-auto">
-					<form class=""  style=" margin-top: 40px;">
-						<div class="shadow"  style="background-color: #F9DFDE;">
+					<!-- <form id = "contactForm" method= "POST">
+						{% csrf_token %}
+			      		{{ PersonalDetailsForm.as_p }}
+			      		<input type="submit" name="post" class="btn btn-primary" />
+			      	</form> -->
+					<form class="" method="POST"  style=" margin-top: 40px;">
+						{% csrf_token %}
+						<div class=""  style="background-color: #F9DFDE;">
 						<div class="row mx-auto col-md-12" style="margin: 30px; font-size: 14px;">
 							<div class="col-md-6"   style="margin-top: 20px;">
 								<div class="form-group row">
@@ -347,18 +353,18 @@
 									<div class="col-md-12">
 										<div class="row" style="padding-left:  19px">
 										<div class="custom-control col-md-4 custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="customCheck1">
+											<input type="checkbox" class="custom-control-input" name="title" id="customCheck1">
 											<label class="custom-control-label" for="customCheck1">Mr</label>
 											
 										</div>
 										<div class="custom-control col-md-4 custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="customCheck2">
+											<input type="checkbox" class="custom-control-input" name="title" id="customCheck2">
 											<label class="custom-control-label" for="customCheck2">Mrs</label>
 											
 										</div>
 
 										<div class="custom-control col-md-4 custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="customCheck3">
+											<input type="checkbox" class="custom-control-input" name="title" id="customCheck3">
 											<label class="custom-control-label" for="customCheck3">Mrs</label>
 											
 										</div>
@@ -369,41 +375,42 @@
 								<div class="form-group row">
 									<label for="inputPassword" class="col-sm-5 col-form-label">First Name</label>
 									<div class="col-md-7">
-										<input type="text" disabled="disabled" class="form-control" id="inputPassword" placeholder="">
+										<input type="text" style="color: white" value="firstname" name="firstname"  class="form-control" id="inputPassword" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row" style="">
-									<label for="inputPassword" class="col-sm-5 col-form-label">Surname</label>
-									<div class="col-md-7">
-										<input type="text" disabled="disabled" class="form-control" id="inputPassword" placeholder="">
+									<label for="inputPassword"  class="col-sm-5 col-form-label">Surname</label>
+									<div class="col-md-7" >
+										<input style="color: white" type="text" value="firstname" name="surname" disabled="disabled" class="form-control" id="inputPassword" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="inputPassword" class="col-sm-5 col-form-label">Date Of Birth</label>
 									<div class="col-md-7">
-										<input type="Date" disabled="disabled" class="form-control" id="inputPassword" placeholder="">
+										<input type="Date" name="dateofbirth" disabled="disabled" class="form-control" id="inputPassword" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="maritalstat" class="col-sm-5 col-form-label">Marital Status</label>
 									<div class="col-md-7">
-										<select class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
-											<!-- <option value="" disabled selected>Choose your option</option> -->
-											<option value="1">Male</option>
-											<option value="2">Female</option>
+										<select name="maritalstatus" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<option value="" disabled selected>Choose your option</option> 
+											<option value="married">Married</option>
+											<option value="single">Single</option>
+											<option value="divorce">Divorce</option>
 										</select>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="primaryemail" class="col-sm-5 col-form-label">Primary Email Address</label>
 									<div class="col-md-7">
-										<input type="email" class="form-control" id="primaryemail" placeholder="">
+										<input type="email" name="email" class="form-control" id="primaryemail" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="timeatyear" class="col-sm-5 col-form-label">Time at address (Year(s))</label>
 									<div class="col-md-7">
-										<input type="number"  class="form-control" id="timeatyear" placeholder="">
+										<input type="number" name="timeataddress"  class="form-control" id="timeatyear" placeholder="">
 									</div>
 								</div>
 							</div>
@@ -411,50 +418,49 @@
 								<div class="form-group row">
 									<label for="middlename" class="col-sm-4 col-form-label">Other</label>
 									<div class="col-md-8">
-										<input type="text" class="input" value="" style="background-color: white" />
+										<input type="text" name="other" class="input" value="" style="background-color: white" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="middlename" class="col-sm-4 col-form-label">Middle Name</label>
 									<div class="col-md-8">
-										<input type="text" disabled="disabled" class="form-control" id="middlename" placeholder="">
+										<input type="text" name="middlename" disabled="disabled" class="form-control" id="middlename" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="mobilephone" class="col-sm-4 col-form-label">Mobile Phone</label>
 									<div class="col-md-8">
-										<input type="number" maxlength="15"  class="form-control" id="mobilephone" placeholder="">
+										<input type="number" name="mobilephone" maxlength="15"  class="form-control" id="mobilephone" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="birthplace" class="col-sm-4 col-form-label">Place of birth</label>
 									<div class="col-md-8">
-										<input type="number"  class="form-control" id="mobilephone" placeholder="">
+										<input type="text" name="placeofbirth"  class="form-control" id="mobilephone" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="dependents" class="col-sm-4 col-form-label">Number of Dependents</label>
 									<div class="col-md-8">
-										<input type="number" maxlength="15"  class="form-control" id="mobilephone" placeholder="">
+										<input type="number" name="numberofdependents" maxlength="15"  class="form-control" id="mobilephone" placeholder="">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="dependents" class="col-sm-4 col-form-label">Home Address</label>
 									<div class="col-md-8">
-										<textarea class="col-md-12" style="height: 100px"></textarea>
+										<textarea class="col-md-12" name="homeaddress" style="height: 100px"></textarea>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="input-group-append col-md-12 mx-auto" style="margin-bottom: 20px;">
-							<button class="btn btn-success btn-lg mx-auto" style="border-color:#86B68E; background-color: #86B68E !important;" type="button">Continue</button>
+							<button class="btn btn-success btn-lg mx-auto" style="border-color:#86B68E; background-color: #86B68E !important;" value="submitpersonaldetails" type="submit">Continue</button>
 						</div>
 					</form>
 				</div>
 			</section>
 
-			<!-- Bootstrap core JavaScript -->
 			<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 			<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 			<script src="{% static 'js/new-age.min.js' %}"></script>

@@ -19,7 +19,6 @@ class HomeData(models.Model):
 
     # return render(request, 'home.html', context) 
 
-
 class Create(models.Model):
     bvn = models.CharField(max_length=100, default='')
 
@@ -33,3 +32,32 @@ class Createnextofkin(models.Model):
     landmark = models.CharField(max_length=100, default='Eko Hotels')
     nextofkinemail = models.CharField(max_length=100, default='admin@mail.com')
     income = models.CharField(max_length=100, default='1 million')
+
+
+
+
+class Personaldetails(models.Model):
+    firstname = models.CharField(max_length=100, default='240,000')
+    surname = models.CharField(max_length=100, default='15%')
+    middlename = models.CharField(max_length=100, default='24')
+    mobilephone = models.CharField(max_length=100,default='1,000,000')
+    title = models.CharField(max_length=100, default='Eko Hotels')
+    dateofbirth = models.CharField(max_length=100, default='admin@mail.com')
+    maritalstatus = models.CharField(max_length=100, default='1 million')
+    email = models.CharField(max_length=100, default='24')
+    timeataddress = models.CharField(max_length=100,default='1,000,000')
+    other = models.CharField(max_length=100, default='Eko Hotels')
+    numberofdependents = models.CharField(max_length=100, default='admin@mail.com')
+    placeofbirth = models.CharField(max_length=100, default='1 million')
+    homeaddress = models.CharField(max_length=100, default='1 million')
+    timestamp = models.DateTimeField(auto_now = True,)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length = 100)
+    email = models.EmailField()
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name

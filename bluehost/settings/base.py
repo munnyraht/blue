@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'crispy_forms',
-
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,8 +93,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'bluehost',
+        'USER': 'root',
+        'PASSWORD': 'megatron007',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -163,3 +167,6 @@ WAGTAIL_SITE_NAME = "bluehost"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL =  '../bluecredit'
