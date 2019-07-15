@@ -6,9 +6,9 @@ from home.models import Createnextofkin
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
-from backend.models import user, bvn_details
+from backend.models import user, bvn_details,personalInfo
 from backend import views 
-from backend.forms import Bvn_number
+from backend.forms import Bvn_number,personalInfo
 from home.functions import get_bvn_details
 from django.contrib import messages
 
@@ -30,10 +30,29 @@ def loansummary(request):
 	template = 'loantype/loansummary.html'
 	return render(request, template, context)
 
-def paymentinfo(request):
-	context = {}
-	template = 'paymentinfo/paymentinfo.html'
-	return render(request, template, context)
+def paymentinfo(request,email='muniratsulaimon@gmail.com'):
+	user_details= user.objects.get(EmailAddress=email)
+	if request.method=='POST':
+		form=personalInfo(request.POST)
+		if form.is_valid():
+			obj=form.cleaned_data
+			MiddleName= obj['MiddleName']
+			MobileNumber2=obj['MobileNumber2']
+			DateOfBirth=obj['DateOfBirth']
+			MaritalStatus=obj['MaritalStatus']
+			PlaceOfBirth=obj['PlaceOfBirth']
+			NumberOfDependent=obj['NumberOfDependent']
+			DateAtAddress=obj['DateAtAddress']
+			HomeAddress= obj['HomeAddress']
+			personalInfo.objects.create(EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
+			template = 'nextofkin'
+			#return render(request, template, context)
+			return redirect(template)
+	else:
+		form=personalInfo()
+		context = {'user_details': user_details, 'form': form}
+		template = 'paymentinfo/paymentinfo.html'
+		return render(request, template, context)
 
 def otherdetails(request):
 	context = {}
@@ -70,14 +89,13 @@ def bvnerror(request):
 
 def verifybvn(request):
 	if (request.method=='POST'):
-		form=Bvn_number(request.GET)
+		form=Bvn_number(request.POST)
 		if form.is_valid():
 			userObj = form.cleaned_data
-			bvn_number = userObj['Bvn_number']
+			bvn_number = userObj['Bvn_Number']
 			email=userObj['EmailAddress']
 			response=get_bvn_details(bvn_number)
 			if response['status']!= 'success':
-				messages=messages()
 				messages.error(request, "something went wrong, try again")
 				return render(request,'bvnerror/verifybvn.html',{})
 			else:

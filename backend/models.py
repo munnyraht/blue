@@ -11,8 +11,9 @@ class user(models.Model):
     Password=models.CharField(max_length=38,null=True)
     ConfirmPassword=models.CharField(max_length=38,null=True)
 
+
 class bvn_details(models.Model):
-    email=models.EmailField(null=True)
+    email=models.ForeignKey(user, on_delete=models.PROTECT)
     bvn=models.IntegerField()
     first_name=models.CharField(max_length=38, null=True)
     last_name= models.CharField(max_length=38, null=True)
@@ -22,5 +23,17 @@ class bvn_details(models.Model):
     registration_date=models.DateField()
     enrollment_bank=models.IntegerField()
     enrollment_branch=models.CharField(max_length=38, null=True)
+
+class personalInfo(models.Model):
+    email=models.ForeignKey(user, on_delete=models.PROTECT)
+    MiddleName= models.CharField(max_length=32)
+    MobileNumber2=models.IntegerField()
+    DateOfBirth=models.DateField()
+    MaritalStatus=models.CharField(max_length=50)
+    PlaceOfBirth=models.CharField(max_length=100)
+    NumberOfDependent=models.IntegerField()
+    DateAtAddress=models.DateField()
+    HomeAddress= models.TextField()
+
     
 
