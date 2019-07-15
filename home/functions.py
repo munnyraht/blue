@@ -1,4 +1,5 @@
 import requests
+<<<<<<< HEAD
 # from urllib.request import urlopen, Request
 # import urllib.error
 # import json
@@ -16,6 +17,8 @@ import requests
 #     return bvndata
 
 
+=======
+>>>>>>> 4dd0daa96e62d5d4ee4b1095f2899eff3d01d94b
 def get_bvn_details(bvn_number):
     api_url=api_url=f'https://api.ravepay.co/v2/kyc/bvn/{bvn_number}?seckey=FLWSECK-175a8247e8b19e7000616c504357e556-X'
     r = requests.get(api_url)

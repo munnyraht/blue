@@ -28,6 +28,20 @@ class Bvn_number(forms.Form):
     EmailAddress=forms.EmailField(required=True)
     Bvn_Number= forms.CharField(max_length=11,required=True,)
 
+class personalInfo(forms.Form):
+    MiddleName= forms.CharField(max_length=32)
+    MobileNumber2=forms.IntegerField()
+    DateOfBirth=forms.DateField()
+    status=('1','Single'),('2','Married')
+    MaritalStatus=forms.ChoiceField(choices=status)
+    PlaceOfBirth=forms.CharField(max_length=100)
+    NumberOfDependent=forms.IntegerField(label='Number Of Dependent ')
+    DateAtAddress=forms.DateField(initial='mm/dd/yyy',label='Date at Address ')
+    HomeAddress= forms.Textarea()
+
+
+
+
 
 
 
