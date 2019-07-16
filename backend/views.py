@@ -7,6 +7,7 @@ from backend.forms import loginForm,RegisterForm
 from backend.models import user
 from django import forms
 from django.contrib import messages 
+from passlib.hash import pbkdf2_sha256
 
 def login(request):
 	if request.method=='POST':
@@ -15,12 +16,15 @@ def login(request):
 			obj=form.cleaned_data
 			email=obj['EmailAddress']
 			password=obj['Password']
-			if (user.objects.filter(EmailAddress=email).exists() and user.objects.filter(Password=password).exists()):
+			enc_password=pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
+			if (user.objects.filter(EmailAddress=email).exists() and user.objects.filter(Password=enc_password).exists()):
 				template = '../bluecredit'
 				return redirect(template)
 			else:
-				messages.error(request, "Error")
-				return redirect('login')
+				error='LogIn details not found'
+				context={ 'form':form,
+						'error': error }
+				return render(request, 'account/signin.html', context)
 				#raise forms.ValidationError('Incorrect Email or password')
 	else:
 		form = loginForm()
@@ -39,8 +43,15 @@ def register(request):
 			mobilenumber=userObj['MobileNumber']
 			password =  userObj['Password']
 			confirmpassword=userObj['ConfirmPassword']
+
 			if not (user.objects.filter(EmailAddress=email).exists()):
-				user.objects.create(FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber,Password=password,ConfirmPassword=confirmpassword)
+				if (password != confirmpassword):
+					error = 'Password mismatch'
+					context={ 'form':form,
+							'error': error }
+					return render(request, 'account/signup.html', context)
+				enc_password=pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
+				user.objects.create(FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber,Password=enc_password)
 				# users = authenticate(EmailAddress = email, Password = password)
 				# login(request)
 				context = {
@@ -49,12 +60,15 @@ def register(request):
 				template='../bluecredit'
 				return redirect (template)
 			else:
-				messages.error(request, "Error")
-				return redirect('register')
+				error = 'Account already exists'
+				context={ 'form':form,
+						'error': error }
+				return render(request, 'account/signup.html', context)
 				#raise forms.ValidationError('Looks like a username with that email or password already exists')
 	else:
 		form = RegisterForm()
-		return render(request, 'account/signup.html', {'form' : form})
+		context={ 'form':form}
+		return render(request, 'account/signup.html', context)
 
 
 def pending(request):

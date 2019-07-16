@@ -33,3 +33,5 @@ class Createnextofkin(models.Model):
     landmark = models.CharField(max_length=100, default='Eko Hotels')
     nextofkinemail = models.CharField(max_length=100, default='admin@mail.com')
     income = models.CharField(max_length=100, default='1 million')
+
+
