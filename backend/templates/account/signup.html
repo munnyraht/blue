@@ -51,11 +51,6 @@ a{
 
 <title>BlueCredit Login</title>
 <script>
-    {% if messages %}
-		  {% for message in messages %}
-			alert(message);
-		  {% endfor %}
-		{% endif %}
  
  </script>
 
@@ -94,9 +89,7 @@ a{
                     </div>
                     <div class="card row">
                         <div class="card-body">
-                            {% if forms.ValidationError %}
-                                <p>email already exists</p>
-                            {% endif %}
+                                <p style="color: red">{{ error }}</p>
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}  
                                 <div class="col-md-12 mx-auto">
