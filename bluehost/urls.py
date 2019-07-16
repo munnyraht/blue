@@ -50,7 +50,7 @@ urlpatterns = [
     #Auth
 
     # path('signup/', backendviews.signup, name='signup'),
-    path('register/', backendviews.signup, name='register'),
+    path('register/', backendviews.register, name='register'),
     path('pending/', backendviews.pending, name='pending'),
     # url('logout/',backendviews.login,name='logout'),
     #dashboard

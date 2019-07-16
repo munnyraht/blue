@@ -44,19 +44,13 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 			PlaceOfBirth=obj['PlaceOfBirth']
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
-<<<<<<< HEAD
-			HomeAddress=obj['HomeAddress']
-			personalinfo.objects.create(EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
-			template = 'nextofkin'
-			#return render(request, template, context)
-			return redirect(template)
-=======
+
 			HomeAddress= obj['HomeAddress']
 			personalInfo.objects.create(EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
 			template = 'paymentinfo/nextofkin.html'
 			return render(request, template, {})
 			#return redirect(template)
->>>>>>> a38da7adc4d65aea42acddb8bcb0bd244f8795a0
+
 	else:
 		form=personalinfo()
 		context = {'user_details': user_details, 'form': form}

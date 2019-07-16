@@ -16,6 +16,7 @@ class loginForm(forms.Form):
 class RegisterForm(forms.Form):
     FirstName=forms.CharField(max_length=38, required=True)
     Surname = forms.CharField(max_length=38, required=True)
+    Username = forms.CharField(max_length=38, required=True)
     Role=forms.CharField(max_length=38,required=True)
     EmailAddress=forms.EmailField(required=True)
     MobileNumber=forms.DecimalField(decimal_places=0, max_digits=11,required=True)
