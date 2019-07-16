@@ -36,6 +36,7 @@ class Createnextofkin(models.Model):
     income = models.CharField(max_length=100, default='1 million')
 
 
+<<<<<<< HEAD
 class EmploymentDetails(models.Model):
     user_id=models.ForeignKey(user, on_delete=models.PROTECT, default='1')
     Bankname = models.CharField(max_length=100, default='Bankname')
@@ -88,3 +89,5 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+=======
+>>>>>>> a38da7adc4d65aea42acddb8bcb0bd244f8795a0

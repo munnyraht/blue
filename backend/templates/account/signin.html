@@ -79,7 +79,7 @@ a{
     </div>
 </nav>
 <main class="my-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="mx-auto text-center col-md-12 mw-100" style="margin:20px;"><img src="{% static 'img/logo.png' %}"></div>
@@ -89,6 +89,7 @@ a{
                         </div>
                     <div class="card row">
                         <div class="card-body">
+                                <p style="color: red">{{ error }}</p>
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}                              
                                      <!--<div class="form-group row">
