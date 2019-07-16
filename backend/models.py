@@ -26,7 +26,7 @@ class bvn_details(models.Model):
     enrollment_bank=models.IntegerField()
     enrollment_branch=models.CharField(max_length=38, null=True)
 
-class personalInfo(models.Model):
+class personalinfo(models.Model):
     email=models.ForeignKey(user, on_delete=models.PROTECT)
     MiddleName= models.CharField(max_length=32)
     MobileNumber2=models.IntegerField()
@@ -36,6 +36,8 @@ class personalInfo(models.Model):
     NumberOfDependent=models.IntegerField()
     DateAtAddress=models.DateField()
     HomeAddress= models.TextField()
+    # objects = personalInfo()
+    # CreatedDate = models.DateTimeField(auto_now = True,)
 
     
 

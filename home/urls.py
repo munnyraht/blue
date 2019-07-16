@@ -2,7 +2,7 @@ from django.contrib.auth import views as authviews
 from django.urls import path
 
 urlpatterns = [
-	path('loginfrontend/', authviews.LoginView.as_view(), name='loginfrontend'),
+	path('login', authviews.LoginView.as_view(), name='loginfrontend'),
     path('logout/', authviews.LogoutView.as_view(), name='logoutfrontend'),
 
     #Password Reset

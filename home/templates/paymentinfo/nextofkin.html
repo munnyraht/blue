@@ -331,7 +331,7 @@
 
 						<div class=""  style="background-color: #F9DFDE;">
 						<div class="row mx-auto col-md-10" style="margin: 30px; font-size: 14px;">
-							<form id="createnextofkin" method="POST">
+							<!-- <form id="createnextofkin" method="POST"> -->
 							<div class="col-md-12"   style="margin-top: 20px;">
 								
 								<div class="form-group row">
@@ -419,7 +419,7 @@
 						
 					</div>
 					<div class="input-group-append col-md-12 mx-auto" style="margin-bottom: 20px;">
-							<button class="btn btn-success btn-lg mx-auto" style=" border-color: #86B68E; background-color: #86B68E !important;" type="submit" id="submit">Continue</button>
+							<button class="btn btn-success btn-lg mx-auto" style=" border-color: #86B68E; background-color: #86B68E !important;" type="submit" id="submit" >Continue</button>
 						</div>
 					</form>
 
@@ -441,6 +441,7 @@
 			<script src="{% static 'js/script.js' %}"></script>
 
 			<script>
+
 				$(document).ready(function(){
 				    $('#submit').on('click', function(){
 				        $nextofkinname = $('#nextofkinname').val();
@@ -462,16 +463,18 @@
 				                    nextofkinrelationship: $nextofkinrelationship,
 				                    nextofkinname: $nextofkinname,
 				                    nextofkinaddress: $nextofkinaddress,
+				                    user_id: ({{ request.user.id }}),
 				                    nextofkinphone: $nextofkinphone,
 				                    nextofkinemail: $nextofkinemail,
 				                    landmark: $landmark,
 				                    income: $income,
 				                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+
 				                },
 				                success: function(data){
-				                    alert("Save Data");
+				                    alert("Data have been saved");
 				                    // $('#nextofkinemail').val('');
-				                    window.location = "{% url 'home' %}";
+				                    window.location = "{% url 'employmentinfo' %}";
 				                }
 				            });
 				        }
