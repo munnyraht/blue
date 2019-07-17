@@ -155,18 +155,18 @@
 .progressbarr li {
   list-style: none;
   display: inline-block;
-  width: 20.33%;
+  width: 10.33%;
   color: #61768E;
   background-color: #61768E;
-  position: relative;
+  /*position: relative;*/
   text-align: center;
   cursor: pointer;
 }
 .progressbarr li:before {
   content: counter(step);
   counter-increment: step;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   color: #61768E
   line-height : 30px;
   border: 1px solid #ddd;
@@ -183,7 +183,7 @@
   height: 1px;
   background-color: #61768E;
   top: 15px;
-  left: -50%;
+  /*left: -50%;*/
   z-index : -1;
 }
 .progressbarr li:first-child:after {
@@ -248,12 +248,16 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-5 card">
 							<div class="" style="margin-top: 30px">
-						     <!--  -->
-						     <ul class="progressbarr">
+						     <ul style="margin-left: 0px;" class="progressbarr mx-auto">
 						        <li class="active"></li>
 						        <li class=""></li>
 						        <li></li>
 						        <li></li>
+						        <li></li>
+						        <li></li>
+						        <li></li>
+						        <li></li>
+						        <li style="border-opacity:0"></li>
 						        
 						      </ul>
 						      <div class="slidecontainer col-md-8 mx-auto">
@@ -264,15 +268,14 @@
 							  <div class="progressbar col-md-12">
 							  <input type="range" min="1" max="1000000" value="50000" class="slider" id="loanAmount">
 							  </div>
-							
 							<div class="slidecontainer col-md-4 mx-auto">
-						      	
 							  <div class="amount"><p><span id="moveMonth" style="color: black; font-size: 30px; letter-spacing: letter-spacing: 10px;"></span>{% if input.moveMonth == 1 %}Month</p> {% else %}Months
-							  	{% endif %}
+							   {% endif %}
 							  </div>
 							</div>
 							  <div class="progressbar col-md-12">
-							  <input type="range" min="1" max="12" value="5" class="slider" id="loanMonth"> 
+							  <input type="range" min="1" max="12" value="5" class="slider" id="loanMonth"> <br>
+							  <a href="{% url 'personalinfo' %}"><button class="btn btn-primary" style="background-color: white; border-color: white; color:#61768E; font-size: 20px; font-weight: bolder; width: 80%; margin-top: 20px; ">Calculate</button></a>
 							  </div>
 							
 						  </div>
@@ -285,10 +288,10 @@
 								<option value="2">Market Aid</option>
 
 							</select>
-							<div class="card card2 col-md-12" style="background-color: #FFF;color: black; height: 320px;">
-								<h2 style="margin-top: 20px;">Loan Calculator</h2>
+							<div class="card card2 col-md-12" style="background-color: #FFF;color: black; height: 380px;">
+								<h2 style="margin-top: 10px;">Loan Calculator</h2><br>
 								<div class="row">
-									<div class="col-md-2">
+									<div class="col-md-3">
 										<div class="circle">
 										<a class="num" href="#">1</a>
 										</div>
@@ -302,14 +305,14 @@
 										<a class="num" href="#">4</a>
 										</div>
 									</div>
-									<div class="col-md-3" style="padding-bottom: 2rem">
-										<img class="img-fluid" src="{% static 'img/nairatrans.png' %}" width="40%" style="padding-bottom: 2rem"><br>
-										<img class="img-fluid icons" src="{% static 'img/nairablack.png' %}" width="40%" style="padding-bottom: 3rem"><br>
-										<img class="img-fluid icons" src="{% static 'img/calender.png' %}" width="40%" style="padding-bottom: 2rem"><br>
-										<img class="img-fluid icons" src="{% static 'img/calculator.png' %}" width="40%" style="padding-bottom: 2rem"><br>
+									<div class="col-md-2" style="">
+										<img class="img-fluid" src="{% static 'img/nairatrans.png' %}" width="100%" style="padding-bottom: 2rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/nairablack.png' %}" width="100%" style="padding-bottom: 3rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/calender.png' %}" width="100%" style="padding-bottom: 3rem"><br>
+										<img class="img-fluid icons" src="{% static 'img/calculator.png' %}" width="100%" style="padding-bottom: 2rem"><br>
 									</div>
-									<div class="col-md-5 mx-auto" style="line-height: 3rem">
-										<p class="img-fluid">Select Loan Type</p>
+									<div class="col-md-6 mx-auto" style="line-height: 3rem; font-size: 15px;">
+										<p class="img-fluid" style="margin-top: 0px;">Select Loan Type</p>
 										<p class="img-fluid">Select Loan Amount</p>
 										<p class="img-fluid">Select Loan Tenure</p>
 										<p class="img-fluid">View Estimates</p>

@@ -1,0 +1,14 @@
+{% block sidebar %}
+
+<div class='col p-0 bg-dark' style='display: block; color: white !important'>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">Credit Check </a> </div>
+                            <div class='side-menu'><a href="{% url 'loanhistory' %}">Loan History</a></div>
+                            <div class='side-menu bg-light' style="color: black"><a href="{% url 'repaymenthistory' %}">Repayment History</a></div>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">Loan Application</a></div>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">Funding</a></div>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">Messages</a></div>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">Settings</a></div>
+                            <div class='side-menu'><a href="{% url 'creditcheck' %}">FAQ</a></div>
+ </div>
+
+{% endblock %}                        

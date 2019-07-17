@@ -6,9 +6,10 @@ from home.models import Createnextofkin
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
-from backend.models import user, bvn_details,personalInfo
+from backend.models import  bvn_details,personalinfo
 from backend import views 
-from backend.forms import Bvn_number,personalInfo
+from users.models import BluecreditUser
+from backend.forms import Bvn_number,personalinfo
 from home.functions import get_bvn_details
 from django.contrib import messages
 
@@ -30,10 +31,10 @@ def loansummary(request):
 	template = 'loantype/loansummary.html'
 	return render(request, template, context)
 
-def paymentinfo(request,email='muniratsulaimon@gmail.com'):
-	user_details= user.objects.get(EmailAddress=email)
+def paymentinfo(request,email='godfredakpan@gmail.com'):
+	user_details= BluecreditUser.objects.get(email=email)
 	if request.method=='POST':
-		form=personalInfo(request.POST)
+		form=personalinfo(request.POST)
 		if form.is_valid():
 			obj=form.cleaned_data
 			MiddleName= obj['MiddleName']
@@ -43,13 +44,15 @@ def paymentinfo(request,email='muniratsulaimon@gmail.com'):
 			PlaceOfBirth=obj['PlaceOfBirth']
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
+
 			HomeAddress= obj['HomeAddress']
 			personalInfo.objects.create(EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
-			template = 'nextofkin'
-			#return render(request, template, context)
-			return redirect(template)
+			template = 'paymentinfo/nextofkin.html'
+			return render(request, template, {})
+			#return redirect(template)
+
 	else:
-		form=personalInfo()
+		form=personalinfo()
 		context = {'user_details': user_details, 'form': form}
 		template = 'paymentinfo/paymentinfo.html'
 		return render(request, template, context)
@@ -97,7 +100,7 @@ def verifybvn(request):
 			response=get_bvn_details(bvn_number)
 			if response['status']!= 'success':
 				messages.error(request, "something went wrong, try again")
-				return render(request,'bvnerror/verifybvn.html',{})
+				return render(request,'bvnerror/verifybvn.html',{'form':form})
 			else:
 				bvn=response['data']['bvn']
 				first_name=response['data']['first_name']
@@ -127,19 +130,6 @@ def acknowledgement(request):
 	template = 'acknowledgement/acknowledgement.html'
 	return render(request, template, context)
 
-# def create(request):
-# 	if request.method == 'POST':
-# 		bvn = request.POST['bvn']
-
-
-# 		Create.objects.create(
-# 			bvn = bvn
-			
-# 		)
-
-# 		return HttpResponse('')
-
-
 def create(request):
     create = Create(bvn=request.POST['bvn'])
     create.save()
@@ -147,7 +137,25 @@ def create(request):
 
 
 def createnextofkin(request):
+
     createnextofkin = Createnextofkin(
+    	nextofkinname=request.POST['nextofkinname'],
+    	nextofkinrelationship=request.POST['nextofkinrelationship'],
+    	nextofkinaddress=request.POST['nextofkinaddress'],
+    	nextofkinphone=request.POST['nextofkinphone'],
+    	landmark=request.POST['landmark'],
+    	nextofkinemail=request.POST['nextofkinemail'],
+    	income=request.POST['income'],
+    	# user_id= request.user.id
+
+    	)
+    createnextofkin.save()
+    # instance.user_id = request.BluecreditUser
+    # instance.save()
+    return redirect('acknowledgement/acknowledgement.html')
+
+def createemploymentinfo(request):
+    createemploymentinfo = Createnextofkin(
     	nextofkinname=request.POST['nextofkinname'],
     	nextofkinrelationship=request.POST['nextofkinrelationship'],
     	nextofkinaddress=request.POST['nextofkinaddress'],
@@ -157,7 +165,32 @@ def createnextofkin(request):
     	income=request.POST['income'],
 
     	)
-    createnextofkin.save()
+    createemploymentinfo.save()
     return redirect('acknowledgement/acknowledgement.html')
 
+def creditcheck(request):
+	context = {}
+	template = 'user_dashboard/creditcheck.html'
+	return render(request, template, context)
 
+def personaldetails(request):
+	context = {}
+	template = 'paymentinfo/paymentinfo.html'
+	return render(request, template, context)
+
+def loanhistory(request):
+	context = {}
+	template = 'user_dashboard/loanhistory.html'
+	return render(request, template, context)
+
+
+def repaymenthistory(request):
+	context = {}
+	template = 'user_dashboard/repaymenthistory.html'
+	return render(request, template, context)
+
+
+def repaymenthistory_doc(request):
+	context = {}
+	template = 'user_dashboard/repaymenthistory_doc.html'
+	return render(request, template, context)

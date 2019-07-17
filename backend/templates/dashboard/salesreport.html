@@ -1,0 +1,109 @@
+<!doctype html>
+ 
+ {% load staticfiles %}
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+   
+    <title>Backend Dashboard</title>
+</head>
+<style>
+    body{
+        background-color: #fff !important;
+    }
+    .input{
+        border-top-left-radius: 30px !important;
+        border-bottom-left-radius: 30px !important;
+    }
+    /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 5.375rem;
+    line-height: 3.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #D9261B;
+}
+.btn{
+    background-color: #9AA7B5 !important;
+    color: #fff !important;
+    border-color: #9AA7B5 !important;
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none !important;
+    cursor: pointer;
+
+}
+</style>
+
+<body>
+
+    <div class="dashboard-main-wrapper">
+
+       {%include 'dashboard/navbar.html' %}
+
+       {%include 'dashboard/sidebar.html' %}
+     
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                        <div class="col-xl-12 col-lg-12 text-center col-md-12 col-sm-12 col-12">
+                            <div class="row" style="margin-top: 20px;">
+                           <div class="col-md-6 card">
+                               
+                           </div>
+                           <div class="col-md-1"></div>
+                           <div class="col-md-5 card">Hello</div>
+                        </div>
+                    </div>
+                   
+                    
+            </div>
+            
+        </div>
+       
+    </div>
+    
+
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- bootstap bundle js -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <!-- slimscroll js -->
+    <script src="{% static 'assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'assets/libs/js/main-js.js' %}"></script>
+    <!-- chart chartist js -->
+    <script src="{% static 'assets/vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+    <!-- sparkline js -->
+    <script src="{% static 'assets/vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+    <!-- morris js -->
+    <script src="{% static 'assets/vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/morris-bundle/morris.js' %}"></script>
+    <!-- chart c3 js -->
+    <script src="{% static 'assets/vendor/charts/c3charts/c3.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/charts/c3charts/C3chartjs.js' %}"></script>
+    <script src="{% static 'assets/libs/js/dashboard-ecommerce.js' %}"></script>
+
+</body>
+ 
+</html>

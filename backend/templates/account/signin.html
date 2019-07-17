@@ -78,23 +78,18 @@ a{
     </div>
     </div>
 </nav>
-
 <main class="my-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="mx-auto text-center col-md-12 mw-100" style="margin:20px;"><img src="{% static 'img/logo.png' %}"></div>
                 <div class="card-header" style="padding: 20px; margin-bottom: 20px;">
                             <span style="font-size: 20px;">Login to Portal</span>
-                            <span style="float: right"><a href="{% url 'loantype' %}">New User?</a> </span>
-
-
+                            <span style="float: right"><a href="{% url 'register' %}">New User?</a> </span>
                         </div>
                     <div class="card row">
-                        
-
                         <div class="card-body">
-                        
+                                <p style="color: red">{{ error }}</p>
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}                              
                                      <!--<div class="form-group row">
@@ -111,12 +106,10 @@ a{
                                       </div>
                                 </div>                           
                         </div> -->
-
-                        
                         {{form|crispy}}
                         <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-success text-center" style=" margin-top: 20px;">
-                                        REGISTER
+                                        Login
                                         </button>
                                     </div>
                     </form>

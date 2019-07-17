@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from django.urls import path, include
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -17,9 +17,14 @@ urlpatterns = [
     url(r'^documents/', include(wagtaildocs_urls)),
     # url('/', views.home, name='home'),
     path('', views.home, name='home'),
+    # path('contacts/', views.contactPage),
+    # path('contact/', views.ContactAjax.as_view(), name = 'contact_submit'),
+    # path('personaldetails/', views.Personal.as_view(), name = 'personal'),
+    # path('ajax/contact', views.postContact, name ='contact_submit'),
     # url(r'home/', views.home, name='home'),
     url(r'^create$', views.create, name='create'),
     url(r'^createnextofkin$', views.createnextofkin, name='createnextofkin'),
+    # url(r'^personaldetails/$', views.personaldetails, name='personaldetails'),
     url(r'^search/$', search_views.search, name='search'),
     url('loantype/', views.loantype, name='loantype'),
     url('loansummary/', views.loansummary, name='loansummary'),
@@ -32,19 +37,34 @@ urlpatterns = [
     url('nextofkin/', views.nextofkin, name='nextofkin'),
     url('otherdetails/', views.otherdetails, name='otherdetails'),
     url('summary/', views.summary, name='summary'),
-    url('logout/',backendviews.login,name='logout'),
+
+    #Frontend Reg
+   
+    #User Dashboard
+    url('creditcheck/', views.creditcheck, name='creditcheck'),
+    url('loanhistory/', views.loanhistory, name='loanhistory'),
+    url('repaymenthistory/', views.repaymenthistory, name='repaymenthistory'),
+    url('repaymenthistory_doc/',views.repaymenthistory_doc,name='repaymenthistory_doc'),
 
     # Backend Urls 
     #Auth
-    path('login/', backendviews.login, name='login'),
+
+    # path('signup/', backendviews.signup, name='signup'),
     path('register/', backendviews.register, name='register'),
     path('pending/', backendviews.pending, name='pending'),
+    # url('logout/',backendviews.login,name='logout'),
     #dashboard
     path('bluecredit/', backendviews.index, name='Home'),
     path('results/', backendviews.results, name='results'),
     path('applicant/', backendviews.personal, name='applicant'),
     path('loandetails/', backendviews.loandetails, name='loandetails'),
+    path('accounts/', include('django.contrib.auth.urls'))
 
+
+    # url(r'^signup/$', core_views.signup, name='signup'),
+    # url(r'^account_activation_sent/$', core_views.account_activation_sent, name='account_activation_sent'),
+    # url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    #     core_views.activate, name='activate'),
 
 
 
