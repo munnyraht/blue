@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.files.storage import FileSystemStorage
 from backend.models import personalinfo
-from backend.models import user
+# from backend.models import user
 from users.models import BluecreditUser
 from django import forms
 from django.core.files.images import ImageFile
