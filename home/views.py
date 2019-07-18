@@ -65,7 +65,7 @@ def otherdetails(request):
 def summary(request):
 	context = {}
 	template = 'paymentinfo/summary.html'
-	return render(request, templa te, context)
+	return render(request, template, context)
 
 def employmentinfo(request):
 	context = {}

@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.contrib.auth import authenticate
 from backend.forms import loginForm,RegisterForm
-from backend.models import user
+#from backend.models import user
 from users.models import BluecreditUser
 from django import forms
 from django.contrib import messages 
