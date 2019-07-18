@@ -44,9 +44,9 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 			PlaceOfBirth=obj['PlaceOfBirth']
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
-
 			HomeAddress= obj['HomeAddress']
-			personalInfo.objects.create(EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
+			user_id=BluecreditUser.objects.get(EmailAddress=email)
+			personalinfo.objects.create(user_id=user_id,EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
 			template = 'paymentinfo/nextofkin.html'
 			return render(request, template, {})
 			#return redirect(template)
@@ -65,7 +65,7 @@ def otherdetails(request):
 def summary(request):
 	context = {}
 	template = 'paymentinfo/summary.html'
-	return render(request, template, context)
+	return render(request, templa te, context)
 
 def employmentinfo(request):
 	context = {}
@@ -74,9 +74,9 @@ def employmentinfo(request):
 
 def nextofkin(request):
 	nextofkindata = Createnextofkin.objects.all()
-	context = {}
+	context = {'nextofkindata': nextofkindata}
 	template = 'paymentinfo/nextofkin.html'
-	return render(request, template, {'nextofkindata': nextofkindata})
+	return render(request, template, context )
 
 
 def bvnerror(request):
@@ -111,7 +111,8 @@ def verifybvn(request):
 				registration_date=response['data']['registration_date']
 				enrollment_bank=response['data']['enrollment_bank']
 				enrollment_branch=response['data']['enrollment_branch']
-				bvn_details.objects.create(email=email,bvn=bvn,first_name=first_name,last_name=last_name,middle_name=middle_name,date_of_birth = date_of_birth, phone_number=phone_number, registration_date=registration_date,enrollment_bank=enrollment_bank, enrollment_branch=enrollment_branch)
+				user_id=BluecreditUser.objects.get(EmailAddress=email)
+				bvn_details.objects.create(user_id=user_id,email=email,bvn=bvn,first_name=first_name,last_name=last_name,middle_name=middle_name,date_of_birth = date_of_birth, phone_number=phone_number, registration_date=registration_date,enrollment_bank=enrollment_bank, enrollment_branch=enrollment_branch)
 				return redirect('bvnerror/bvnaccepted.html', email=email)
 	else:
 		form = Bvn_number()
