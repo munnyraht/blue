@@ -54,8 +54,8 @@ def register(request):
 					context={ 'form':form,
 							'error': error }
 					return render(request, 'account/signup.html', context)
-				enc_password=pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
-				BluecreditUser.objects.create(username=username,FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber,password=enc_password)
+				# enc_password=pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
+				BluecreditUser.objects.create(username=username,FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber,password=password)
 				# users = authenticate(EmailAddress = email, Password = password)
 				# login(request)
 				context = {
