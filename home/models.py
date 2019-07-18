@@ -1,7 +1,10 @@
 from django.db import models
-# from backend.models import personalInfo
+from django.core.files.storage import FileSystemStorage
+from backend.models import personalinfo
 from backend.models import user
+from users.models import BluecreditUser
 from django import forms
+from django.core.files.images import ImageFile
 from wagtail.core.models import Page
 
 
@@ -26,7 +29,7 @@ class Create(models.Model):
 
 
 class Createnextofkin(models.Model):
-    user_id=models.ForeignKey(user, on_delete=models.PROTECT, default='1')
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
     nextofkinname = models.CharField(max_length=100, default='240,000')
     nextofkinrelationship = models.CharField(max_length=100, default='15%')
     nextofkinaddress = models.CharField(max_length=100, default='24')
@@ -38,7 +41,7 @@ class Createnextofkin(models.Model):
 
 
 class EmploymentDetails(models.Model):
-    user_id=models.ForeignKey(user, on_delete=models.PROTECT, default='1')
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
     Bankname = models.CharField(max_length=100, default='Bankname')
     Existing_bank_account_number = models.CharField(max_length=100, default='0000000')
     Highest_level_of_education = models.CharField(max_length=100, default='Degree')
@@ -50,7 +53,7 @@ class EmploymentDetails(models.Model):
     Net_monthly_income_with_tax = models.CharField(max_length=100, default='1 million')
 
 class AdditionalInformation(models.Model):
-    user_id=models.ForeignKey(user, on_delete=models.PROTECT, default='1')
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
     Official_email_address = models.CharField(max_length=100, default='email@mail.com')
     Official_pay_day = models.CharField(max_length=100, default='0000000')
     Loan_amount = models.CharField(max_length=100, default='Degree')
@@ -64,7 +67,7 @@ class AdditionalInformation(models.Model):
 
 
 class Personaldetails(models.Model):
-    user_id=models.ForeignKey(user, on_delete=models.PROTECT, default='1')
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
     firstname = models.CharField(max_length=100, default='240,000')
     surname = models.CharField(max_length=100, default='15%')
     middlename = models.CharField(max_length=100, default='24')
@@ -90,3 +93,10 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+
+class Acknowledgement(models.Model):
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
+    terms_and_conditions = models.CharField(max_length=255, blank=True)
+    how_you_heard_about_us = models.CharField(max_length=255, blank=True)
+    signature = models.ImageField(upload_to='signatures/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

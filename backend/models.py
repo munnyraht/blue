@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import BluecreditUser
 
 # Create your models here.
 class user(models.Model):
@@ -15,7 +16,7 @@ class user(models.Model):
 
 
 class bvn_details(models.Model):
-    email=models.ForeignKey(user, on_delete=models.PROTECT)
+    email=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT)
     bvn=models.IntegerField(null=True)
     first_name=models.CharField(max_length=38, null=True)
     last_name= models.CharField(max_length=38, null=True)
@@ -27,7 +28,7 @@ class bvn_details(models.Model):
     enrollment_branch=models.CharField(max_length=38, null=True)
 
 class personalinfo(models.Model):
-    email=models.ForeignKey(user, on_delete=models.PROTECT)
+    email=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT)
     MiddleName= models.CharField(max_length=32)
     MobileNumber2=models.IntegerField(null=True)
     DateOfBirth=models.DateField(null=True)
@@ -43,6 +44,9 @@ class personalinfo(models.Model):
     NumberOfDependent=models.IntegerField(null=True)
     DateAtAddress=models.DateField(null=True)
     HomeAddress= models.TextField(null=True)
+
+
+    objects = models.Manager()
 
 
     

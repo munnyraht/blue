@@ -1,6 +1,7 @@
 from django import forms
 from home.models import Contact
-# from home.models import Personaldetails
+from home.models import Createnextofkin
+from home.models import Acknowledgement
 from django.contrib import messages
 
 class ContactForm(forms.ModelForm):
@@ -17,16 +18,22 @@ class ContactForm(forms.ModelForm):
 			self.fields[field].widget.attrs.update({
 		    'class': 'form-control'})
 
-# class PersonalDetailsForm(forms.ModelForm):
-# 	class Meta:
-# 		model = Personaldetails 
-# 		exclude = ["timestamp",]
-# 		widgets = {
-# 			'message': forms.Textarea(attrs={'rows':4, 'cols':15}),
-# 		}
+class Createnextofkinform(forms.ModelForm):
+	class Meta:
+		model = Createnextofkin 
+		exclude = ["timestamp",]
+		widgets = {
+			'message': forms.Textarea(attrs={'rows':4, 'cols':15}),
+		}
 
-# 	def __init__(self, *args, **kwargs):
-# 		super(PersonalDetailsForm, self).__init__(*args, **kwargs)
-# 		for field in self.fields:
-# 			self.fields[field].widget.attrs.update({
-# 		    'class': 'form-control'})
+	# def __init__(self, *args, **kwargs):
+	# 	super(Createnextofkin, self).__init__(*args, **kwargs)
+	# 	for field in self.fields:
+	# 		self.fields[field].widget.attrs.update({
+	# 	    'class': 'form-control'})
+
+
+class Acknowledgement(forms.ModelForm):
+    class Meta:
+        model = Acknowledgement
+        fields = ('terms_and_conditions', 'how_you_heard_about_us',  'signature', )

@@ -9,7 +9,7 @@ STATES = (
 )
 
 class loginForm(forms.Form):
-	EmailAddress = forms.EmailField(required=True)
+	email = forms.EmailField(required=True)
 	password = forms.CharField(widget=forms.PasswordInput())
 
     
