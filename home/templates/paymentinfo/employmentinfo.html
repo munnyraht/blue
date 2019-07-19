@@ -316,7 +316,7 @@
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-8 mx-auto">
-								<h5>Next of Kin Information</h5>
+								<h5>Employment Information</h5>
 							</div>
 							<div class="col-md-4">
 								<h5>BVN &nbsp; &nbsp; 98765432109</h5>
@@ -325,13 +325,10 @@
 					</div>
 
 					<div class="col-md-12 mx-auto">
-
-						<form method="POST" style=" margin-top: 40px;">
+					<form method="POST" action="" style=" margin-top: 40px;">
 							{% csrf_token %}
-
 							<div class=""  style="background-color: #F9DFDE;">
 							<div class="row mx-auto col-md-10" style="margin: 30px; font-size: 14px;">
-								<form id="createnextofkin" method="POST">
 								<div class="col-md-12"   style="margin-top: 20px;">
 									<div class="form-group row">
 										<label for="bank" class="col-sm-4 col-form-label"></label>
@@ -363,18 +360,18 @@
 										</div>
 									</div>
 								</div>
-
+								
 								<div class="col-md-6">
 									<div class="form-group row">
 										<label for="nextofkin" class="col-sm-5 col-form-label">Bank Name</label>
 										<div class="col-md-7" style="padding-left: 50px;">
-											<select name="nextofkinrelationship" id="nextofkinrelationship" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<select name="bankname" id="bankname" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
 												<option value="access">Access Bank</option>
 												<option value="citibank">Citibank</option>
 												<option value="diamond">Diamond Bank</option>
 												<option value="ecobank">Ecobank</option>
 												<option value="fidelity">Fidelity Bank</option>
-												<option value="fcmb">First City Monument Bank (FCMB)</option>
+												<option value="fcmb">First City Monument Bank(FCMB)</option>
 												<option value="fsdh">FSDH Merchant Bank</option>
 												<option value="gtb">Guarantee Trust Bank (GTB)</option>
 												<option value="heritage">Heritage Bank</option>
@@ -390,19 +387,17 @@
 												<option value="unity">Unity Bank</option>
 												<option value="wema">Wema Bank</option>
 												<option value="zenith">Zenith Bank</option>
-
 											</select>
 										</div>
 									</div>
 								</div>
-
 								<div class="col-md-6">
 									<div class="form-group row">
 										<div class="col-md-5" style="padding-left: 50px;">
 											<div class="form-group row">
-										<label for="middlename" class="col-md-4 col-form-label">Bank Acct/Num</label>
+										<label for="accountnumber" class="col-md-4 col-form-label">Bank Acct/Num</label>
 										<div class="col-md-4">
-											<input type="text" class="input" value="" style="background-color: white; border-width: 1px;" />
+											<input type="number" name="accountnumber" id="accountnumber" class="input" value="" style="background-color: white; border-width: 1px;"/>
 										</div>
 									</div>
 										</div>
@@ -412,7 +407,7 @@
 									<div class="form-group row">
 										<label for="nextofkin" class="col-sm-5 col-form-label">Highest Level of Education</label>
 										<div class="col-md-7" style="padding-left: 50px;">
-											<select name="nextofkinrelationship" id="nextofkinrelationship" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<select name="highestlevelofeducation" id="highestlevelofeducation" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
 												<option value="ssce">Senior Secondary School</option>
 												<option value="degree">University</option>
 												<option value="fslc">First School Leaving</option>
@@ -427,7 +422,7 @@
 											<div class="form-group row">
 										<label for="middlename" class="col-md-3 col-form-label">Employment Status</label>
 										<div class="col-md-9">
-											<select name="nextofkinrelationship" id="nextofkinrelationship" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											<select name="employmentstatus" id="employmentstatus" class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
 												<option value="employed">Employed</option>
 												<option value="unemployed">Unemployed</option>
 											</select>
@@ -439,18 +434,18 @@
 									<div class="col-md-12"   style="">
 									
 									<div class="form-group row">
-										<label for="nextofkinemail" class="col-sm-3 col-form-label">Current Employer</label>
+										<label for="currentemployer" class="col-sm-3 col-form-label">Current Employer</label>
 										<div class="col-md-9">
-											<input type="email" name="nextofkinemail"  class="form-control" style="height: 50px;" id="nextofkinemail" placeholder="">
+											<input type="text" name="currentemployer"  class="form-control" style="height: 50px;" id="currentemployer" placeholder="">
 										</div>
 									</div>
 								</div>
 								<div class="col-md-12"   style="">
 									
 									<div class="form-group row">
-										<label for="nextofkinaddress" class="col-sm-3 col-form-label">Employer's Address and Department</label>
+										<label for="employeraddress" class="col-sm-3 col-form-label">Employer's Address and Department</label>
 										<div class="col-md-9">
-											<input type="text" name="nextofkinaddress"  class="form-control" style="height: 50px;" id="nextofkinaddress" placeholder="">
+											<input type="text" name="employeraddress"  class="form-control" style="height: 50px;" id="employeraddress" placeholder="">
 										</div>
 									</div>
 								</div>
@@ -484,7 +479,7 @@
 										</div>
 									</div>
 								</div>
-									</form>
+									
 								</div>
 							</div>
 							
@@ -510,45 +505,6 @@
 				<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 				<script src="{% static 'js/new-age.min.js' %}"></script>
 				<script src="{% static 'js/script.js' %}"></script>
-
-				<script>
-					$(document).ready(function(){
-					    $('#submit').on('click', function(){
-					        $nextofkinname = $('#nextofkinname').val();
-					        $nextofkinrelationship = $('#nextofkinrelationship').val();
-					        $nextofkinaddress = $('#nextofkinaddress').val();
-					        $nextofkinphone = $('#nextofkinphone').val();
-					        $nextofkinemail = $('#nextofkinemail').val();
-					        $landmark = $('#landmark').val();
-					        $income = $('#income').val();
-
-
-					        if($nextofkinemail == ""){
-					            alert("Please complete field");
-					        }else{
-					            $.ajax({
-					                type: "POST",
-					                url: '/createnextofkin',
-					                data:{
-					                    nextofkinrelationship: $nextofkinrelationship,
-					                    nextofkinname: $nextofkinname,
-					                    nextofkinaddress: $nextofkinaddress,
-					                    nextofkinphone: $nextofkinphone,
-					                    nextofkinemail: $nextofkinemail,
-					                    landmark: $landmark,
-					                    income: $income,
-					                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-					                },
-					                success: function(){
-					                    alert('Save Data');
-					                    // $('#nextofkinemail').val('');
-					                    window.location = "/";
-					                }
-					            });
-					        }
-					    });
-					});
-				</script>
-
+				<script src="{% static 'js/employmentinfo.js' %}"></script>
 			</body>
 			</html>

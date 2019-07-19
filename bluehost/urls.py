@@ -18,12 +18,13 @@ urlpatterns = [
     # url('/', views.home, name='home'),
     path('', views.home, name='home'),
     # path('contacts/', views.contactPage),
-    # path('contact/', views.ContactAjax.as_view(), name = 'contact_submit'),
+    # path('contact/', views.contact, name = 'contact'),
     # path('personaldetails/', views.Personal.as_view(), name = 'personal'),
     # path('ajax/contact', views.postContact, name ='contact_submit'),
     # url(r'home/', views.home, name='home'),
     url(r'^create$', views.create, name='create'),
     url(r'^createnextofkin$', views.createnextofkin, name='createnextofkin'),
+    url(r'^createemploymentinfo$', views.createemploymentinfo, name='createemploymentinfo'),
     # url(r'^personaldetails/$', views.personaldetails, name='personaldetails'),
     url(r'^search/$', search_views.search, name='search'),
     url('loantype/', views.loantype, name='loantype'),
@@ -38,6 +39,9 @@ urlpatterns = [
     url('otherdetails/', views.otherdetails, name='otherdetails'),
     url('summary/', views.summary, name='summary'),
 
+    # Upload File 
+    url(r'^terms$', views.acknowledgement_form_upload, name='acknowledgement_form_upload'),
+
     #Frontend Reg
    
     #User Dashboard
@@ -48,7 +52,6 @@ urlpatterns = [
 
     # Backend Urls 
     #Auth
-
     # path('signup/', backendviews.signup, name='signup'),
     path('register/', backendviews.register, name='register'),
     path('pending/', backendviews.pending, name='pending'),

@@ -299,8 +299,8 @@
     </div>
     <div class="row justify-content-center align-items-center">
       <div class="col-sm-6 ">
-      	<form id = "contactForm" method= "POST">{% csrf_token %}
-      		{{ contactForm.as_p }}
+      	<form id = "" method= "POST">{% csrf_token %}
+      		{{ form.as_p }}
       		<input type="submit" name="post" class="btn btn-primary" />
       	</form>
       </div>
@@ -308,28 +308,7 @@
 </div>
 
 
-<script type="text/javascript">
-$(document).ready(function(){
-   $("#contactForm").submit(function(e){
-	// prevent from normal form behaviour
-      	e.preventDefault();
-    	// serialize the form data  
-      	var serializedData = $(this).serialize();
-      	$.ajax({
-      		type : 'POST',
-      		url :  "{% url 'contact_submit' %}",
-      		data : serializedData,
-      		success : function(response){
-			//reset the form after successful submit
-      			$("#contactForm")[0].reset(); 
-      		},
-      		error : function(response){
-      			console.log(response)
-      		}
-      	});
-   });
-});
-</script>
+
 </section>
 
 			<!-- Bootstrap core JavaScript -->

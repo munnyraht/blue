@@ -86,7 +86,7 @@ a{
                     </div>
                     <div class="card row">
                         <div class="card-body">
-                                <p style="color: red">{{ error }}</p>
+                                <p style="color: red; " class="mx-auto">{{ error }}</p>
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}  
                                 <div class="col-md-12 mx-auto">
