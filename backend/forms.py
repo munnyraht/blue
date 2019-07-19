@@ -81,9 +81,9 @@ class RegisterForm(UserCreationForm):
             'FirstName',
             'Surname',
             'Role',
-            'EmailAddress',
+            # 'EmailAddress',
             'MobileNumber',
-            'active',            
+            # 'active',            
         )
 
     def save(self, commit=True):
@@ -92,9 +92,9 @@ class RegisterForm(UserCreationForm):
         user.FirstName = self.cleaned_data['FirstName']
         user.Surname = self.cleaned_data['Surname']
         user.Role = self.cleaned_data['Role']
-        user.EmailAddress = self.cleaned_data['EmailAddress']
+        # user.EmailAddress = self.cleaned_data['EmailAddress']
         user.MobileNumber = self.cleaned_data['MobileNumber']
-        user.active = self.cleaned_data['active']
+        # user.active = self.cleaned_data['active']
 
         if commit:
             user.save()
