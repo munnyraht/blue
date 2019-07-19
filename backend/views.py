@@ -116,7 +116,7 @@ def register(request):
 				context = {
 					'form':form
 	              }
-				template='../account/pending.html'
+				template='account/pending.html'
 				return redirect (template)
 			else:
 				error = 'Account already exists'
