@@ -1,7 +1,7 @@
 from django import forms
 #from django.forms import ModelForm
 from users.models  import  BluecreditUser
-from backend.models import personalinfo
+from backend.models import personalinfomodel
 from django.contrib.auth.forms import UserCreationForm
 
 # from backend.models import personalinformation
@@ -43,7 +43,7 @@ class Bvn_number(forms.Form):
     EmailAddress=forms.EmailField(required=True)
     Bvn_Number= forms.CharField(max_length=11,required=True,)
 
-class personalinfo(forms.Form):
+class personalinfo(forms.ModelForm):
     #MARRIAGESTATUS = (('1','Single'),('2','Married'),)
 
     MiddleName= forms.CharField(max_length=32)
