@@ -439,6 +439,7 @@
 			<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 			<script src="{% static 'js/new-age.min.js' %}"></script>
 			<script src="{% static 'js/script.js' %}"></script>
+			<!-- <script src="{% static 'js/nextofkin.js' %}"></script> -->
 
 			<script>
 
@@ -452,7 +453,6 @@
 				        $landmark = $('#landmark').val();
 				        $income = $('#income').val();
 
-
 				        if($nextofkinemail == ""){
 				            alert("Please complete field");
 				        }else{
@@ -463,7 +463,6 @@
 				                    nextofkinrelationship: $nextofkinrelationship,
 				                    nextofkinname: $nextofkinname,
 				                    nextofkinaddress: $nextofkinaddress,
-				                    user_id: ({{ request.user.id }}),
 				                    nextofkinphone: $nextofkinphone,
 				                    nextofkinemail: $nextofkinemail,
 				                    landmark: $landmark,
@@ -474,7 +473,7 @@
 				                success: function(data){
 				                    alert("Data have been saved");
 				                    // $('#nextofkinemail').val('');
-				                    window.location = "{% url 'employmentinfo' %}";
+				                    window.location = "{% url 'acknowledgement' %}";
 				                }
 				            });
 				        }

@@ -152,9 +152,7 @@
   background-color: #61768E;
 
 }
-/*.form-control{
-    border-color: #fff !important;
-}*/
+
 .progressbarr li:after {
   content: "";
   position: absolute;

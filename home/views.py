@@ -2,16 +2,24 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from home.models import HomeData
 from home.models import Create
+from home.models import Contact
 from home.models import Createnextofkin
+from home.models import EmploymentDetails
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
 from backend.models import  bvn_details,personalinfo
 from backend import views 
 from users.models import BluecreditUser
-from backend.forms import Bvn_number,personalinfo
+from backend.forms import Bvn_number,personalinfo 
+from home.forms import Createnextofkinform
 from home.functions import get_bvn_details
 from django.contrib import messages
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
+from home.models import Acknowledgement
+from home.forms import Acknowledgement
 
 
 def home(request):
@@ -32,7 +40,7 @@ def loansummary(request):
 	return render(request, template, context)
 
 def paymentinfo(request,email='godfredakpan@gmail.com'):
-	user_details= BluecreditUser.objects.get(email=email)
+	user_details = BluecreditUser.objects.get(email=email)
 	if request.method=='POST':
 		form=personalinfo(request.POST)
 		if form.is_valid():
@@ -45,7 +53,7 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
 			HomeAddress= obj['HomeAddress']
-			user_id=BluecreditUser.objects.get(EmailAddress=email)
+			user_id = user_id = BluecreditUser.objects.get(EmailAddress=email)
 			personalinfo.objects.create(user_id=user_id,EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
 			template = 'paymentinfo/nextofkin.html'
 			return render(request, template, {})
@@ -53,9 +61,9 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 
 	else:
 		form=personalinfo()
-		context = {'user_details': user_details, 'form': form}
-		template = 'paymentinfo/paymentinfo.html'
-		return render(request, template, context)
+		# context = {'user_details': user_details, 'form': form}
+		# template = 'paymentinfo/paymentinfo.html'
+	return render(request, 'paymentinfo/paymentinfo.html', {'user_details': user_details, 'form': form})
 
 def otherdetails(request):
 	context = {}
@@ -84,11 +92,6 @@ def bvnerror(request):
 	template = 'bvnerror/bvnerror.html'
 	return render(request, template, context)
 
-# def verifybvn(request):
-# 	form = Bvn_number()
-# 	context = {'form':form}
-# 	template = 'bvnerror/verifybvn.html'
-# 	return render(request, template, context)
 
 def verifybvn(request):
 	if (request.method=='POST'):
@@ -147,27 +150,37 @@ def createnextofkin(request):
     	landmark=request.POST['landmark'],
     	nextofkinemail=request.POST['nextofkinemail'],
     	income=request.POST['income'],
-    	# user_id= request.user.id
+    	# user_id = request.BluecreditUser(id)
 
     	)
-    createnextofkin.save()
+
+    instance=createnextofkin.save()
+    # instance=createnextofkin.save()
     # instance.user_id = request.BluecreditUser
-    # instance.save()
-    return redirect('acknowledgement/acknowledgement.html')
+    # instance()
+    return redirect('paymentinfo/employmentinfo.html')
 
 def createemploymentinfo(request):
-    createemploymentinfo = Createnextofkin(
-    	nextofkinname=request.POST['nextofkinname'],
-    	nextofkinrelationship=request.POST['nextofkinrelationship'],
-    	nextofkinaddress=request.POST['nextofkinaddress'],
-    	nextofkinphone=request.POST['nextofkinphone'],
-    	landmark=request.POST['landmark'],
-    	nextofkinemail=request.POST['nextofkinemail'],
-    	income=request.POST['income'],
+	# if (request.method=='POST'):
+	    createemploymentinfo = EmploymentDetails(
+	    	Bankname=request.POST['bankname'],
+	    	Existing_bank_account_number=request.POST['accountnumber'],
+	    	Highest_level_of_education=request.POST['highestlevelofeducation'],
+	    	Employment_status=request.POST['employmentstatus'],
+	    	Current_employer=request.POST['currentemployer'],
+	    	Employers_address_and_department=request.POST['employeraddress'],
+	    	Landmark_closest_to_address=request.POST['landmark'],
+	    	Income=request.POST['income'],
+	    	Net_monthly_income_with_tax=request.POST['netincome'],
+	    	)
 
-    	)
-    createemploymentinfo.save()
-    return redirect('acknowledgement/acknowledgement.html')
+	    createemploymentinfo.save()
+	    return redirect('acknowledgement/acknowledgement.html')
+
+	# else:
+	# 	context = {}
+	# 	template = 'paymentinfo/employmentinfo.html'
+	# 	return render(request, template, context)
 
 def creditcheck(request):
 	context = {}
@@ -195,3 +208,17 @@ def repaymenthistory_doc(request):
 	context = {}
 	template = 'user_dashboard/repaymenthistory_doc.html'
 	return render(request, template, context)
+
+def acknowledgement_form_upload(request):
+    if request.method == 'POST':
+        form = Acknowledgement(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit='False')
+            instance.user_id = request.user
+            instance.save()
+            return redirect('acknowledgement/acknowledgement.html')
+    else:
+        form = Acknowledgement()
+    return render(request, 'acknowledgement/acknowledgement.html', {
+        'form': form
+    })

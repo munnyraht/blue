@@ -1,7 +1,11 @@
 from django.db import models
-# from backend.models import personalInfo
+from django.core.files.storage import FileSystemStorage
+from backend.models import personalinfo
+# from backend.models import user
 from users.models import BluecreditUser
 from django import forms
+from backend.models import personalinformation
+from django.core.files.images import ImageFile
 from wagtail.core.models import Page
 
 
@@ -90,3 +94,10 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+
+class Acknowledgement(models.Model):
+    user_id=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
+    terms_and_conditions = models.CharField(max_length=255, blank=True)
+    how_you_heard_about_us = models.CharField(max_length=255, blank=True)
+    signature = models.ImageField(upload_to='signatures/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
