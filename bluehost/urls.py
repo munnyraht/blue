@@ -43,7 +43,7 @@ urlpatterns = [
     url(r'^terms$', views.acknowledgement_form_upload, name='acknowledgement_form_upload'),
 
     #Frontend Reg
-   
+    #url(r'^create_user/$',(CreateView.as_view(model=BluecreditUser, get_success_url =lambda: reverse('pending'), form_class=UserCreationForm, template_name="register")), name='register'),
     #User Dashboard
     url('creditcheck/', views.creditcheck, name='creditcheck'),
     url('loanhistory/', views.loanhistory, name='loanhistory'),
@@ -53,7 +53,7 @@ urlpatterns = [
     # Backend Urls 
     #Auth
     # path('signup/', backendviews.signup, name='signup'),
-    path('register/', backendviews.register, name='register'),
+    path('register/', backendviews.signup, name='register'),
     path('pending/', backendviews.pending, name='pending'),
     # url('logout/',backendviews.login,name='logout'),
     #dashboard

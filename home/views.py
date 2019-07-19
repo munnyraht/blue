@@ -8,11 +8,12 @@ from home.models import EmploymentDetails
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
-from backend.models import  bvn_details,personalinfo
+from backend.models import  bvn_details,personalinfomodel
 from backend import views 
 from users.models import BluecreditUser
 from backend.forms import Bvn_number,personalinfo 
 from home.forms import Createnextofkinform
+from home.forms import Personal
 from home.functions import get_bvn_details
 from django.contrib import messages
 from django.conf import settings
@@ -42,7 +43,7 @@ def loansummary(request):
 def paymentinfo(request,email='godfredakpan@gmail.com'):
 	user_details = BluecreditUser.objects.get(email=email)
 	if request.method=='POST':
-		form=personalinfo(request.POST)
+		form=Personal(request.POST)
 		if form.is_valid():
 			obj=form.cleaned_data
 			MiddleName= obj['MiddleName']
@@ -53,14 +54,15 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
 			HomeAddress= obj['HomeAddress']
-			user_id = user_id = BluecreditUser.objects.get(EmailAddress=email)
-			personalinfo.objects.create(user_id=user_id,EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
+			# email = email = BluecreditUser.objects.get(EmailAddress=email)
+			# user_id = user_id = request.BluecreditUser(id)
+			personalinfomodel.objects.create(MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
 			template = 'paymentinfo/nextofkin.html'
 			return render(request, template, {})
 			#return redirect(template)
 
 	else:
-		form=personalinfo()
+		form=Personal()
 		# context = {'user_details': user_details, 'form': form}
 		# template = 'paymentinfo/paymentinfo.html'
 	return render(request, 'paymentinfo/paymentinfo.html', {'user_details': user_details, 'form': form})
@@ -222,3 +224,15 @@ def acknowledgement_form_upload(request):
     return render(request, 'acknowledgement/acknowledgement.html', {
         'form': form
     })
+
+# def paymentinfo(request):
+#     if request.method =='POST':
+#         form = Personal(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('paymentinfo/nextofkin.html')
+#     else:
+#         form = Personal()
+
+#         args = {'form': form}
+#     return render(request, 'paymentinfo/paymentinfo.html', args)

@@ -87,24 +87,11 @@ a{
                             <span style="font-size: 20px;">Login to Portal</span>
                             <span style="float: right"><a href="{% url 'register' %}">New User?</a> </span>
                         </div>
-                    <div class="card row">
+                    <div class="card row">hhhh
                         <div class="card-body">
                             <form name="login_form" onsubmit="return validform()" method="POST">
                                 {% csrf_token %}                              
-                                     <!--<div class="form-group row">
-                                    <div class="form-group row">
-                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                                        <div class="col-md-4">
-                                        </div>
-                                    </div>
-
-                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">Password</label>
-                                        <div class="col-md-4">
-                                            <input type="password" id="password" class="form-control" name="email-password">
-                                        </div>
-                                      </div>
-                                </div>                           
-                        </div> -->
+                                  
                         
                         {{form|crispy}}
                         <div class="col-md-12 text-center">

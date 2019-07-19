@@ -28,9 +28,9 @@ class bvn_details(models.Model):
     enrollment_bank=models.IntegerField(null=True)
     enrollment_branch=models.CharField(max_length=38, null=True)
 
-class personalinfo(models.Model):
+class personalinfomodel(models.Model):
 
-    email=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT)
+    email=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT, default='1')
     MiddleName= models.CharField(max_length=32)
     MobileNumber2=models.IntegerField(null=True)
     DateOfBirth=models.DateField(null=True)
