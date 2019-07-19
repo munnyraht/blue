@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 <html lang="en">
 
 <head>
@@ -225,10 +226,17 @@
 			border-color: black;
 
 		}
+		input {
+			border: 1px solid #ccc !important;
+		}
+		.form-control {
+			border: 1px solid #ccc !important;
+		}
+
+
 	</style>
 
 	<body>
-
 		<nav class="navbar navlink navbar-expand-lg navbar-light fixed-top" id="mainNav">
 			<div class="container">
 				<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'img/logo.png' %}"></a>
@@ -320,11 +328,13 @@
 					</div>
 
 				</div>
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
+    				{% csrf_token %}
 				<div class="col-md-12 mx-auto" style="padding: 40px;">
 					<div style=" background-color: #F9DFDE;padding: 40px;">
 						<div class="col-md-10 card mx-auto"style="padding: 50px;" >
 							<p style="margin-top: 20px;">I hereby confirm and certify that all information provided by me above and attached thereto is correct and complete. I authorize you to make any enquiry you consider necessary and appropriate for the purpose of evaluating this application.</p>
+							
 							<div class="col-xs-12 col-xs-offset-3" style="margin-bottom: 80px;">
 								<div class="checkbox">
 									<label>
@@ -336,7 +346,7 @@
 								<div class="col-md-6 mx-auto" style="text-align: center">
 									<hr>
 									<p class="mx-auto">Applicant's Signature</p>
-									<button class="btn btn-default col-md-12" style="background-color: #AFB0B1; border-color: #AFB0B1"> <i class="fa fa-upload" aria-hidden="true"> Upload Digital Signature</i></button>
+									{{ form.signature|as_crispy_field }} <i class="fa fa-upload" aria-hidden="true"> Upload Digital Signature</i>
 
 								</div>
 								<div class="col-md-6 mx-auto" style="text-align: center">
@@ -351,16 +361,18 @@
 
 						<div class="col-md-10 mx-auto card" style="padding: 50px; margin-top: 20px;height: 200px">
 							<div class="col-md-6">
-								<p>How did you hear about us?</p>
+								<!-- <p>How did you hear about us?</p> -->
 								<div class="form-group">
 									
-									<div class="col-md-7">
-										<select class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
-											<!-- <option value="" disabled selected>Choose your option</option> -->
+									<div class="col-md-10">
+
+										{{ form.how_you_heard_about_us|as_crispy_field }}
+										<!-- <select class="mdb-select md-form btn-lg btn-default col-md-12" style="font-size: 13px">
+											 <option value="" disabled selected>Choose your option</option> -
 											<option value="walkin">Walk In</option>
 											<option value="radio">Radio</option>
 											<option value="facebook">Facebook</option>
-										</select>
+										</select> -->
 									</div>
 								</div>
 							</div>

@@ -318,19 +318,21 @@
 						<div class="col-md-4 mx-auto" style="">
 
 							<form method="POST"> 
-									{% csrf_token %} 
-							
-							{{form|crispy}}
+									{% csrf_token %}
+							<div class="form-row">
+					      <div class="form-group col-md-6 mb-0">
+					        {{ form.EmailAddress|as_crispy_field }}
+					      </div>
+					      <div class="form-group col-md-6 mb-0">
+					        {{ form.Bvn_Number|as_crispy_field }}
+					      </div>
+					    </div> 
 							<div class="card" style="padding: 20px; background-color: rgba(217, 38, 27, 0.2)">
 							<button class="btn btn-success" type="submit">GET DATA</button>
 							</div>
 							</form> 
 						</div>
 						</div>
-				
-				
-	
-				
 				<!-- <div class="col-md-4 mx-auto" style="margin-bottom: 20px;"> -->
 					
 						<!-- <div class="card" style="padding: 20px; background-color: rgba(217, 38, 27, 0.2)">

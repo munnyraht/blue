@@ -4,6 +4,7 @@ from backend.models import personalinfo
 # from backend.models import user
 from users.models import BluecreditUser
 from django import forms
+from backend.models import personalinformation
 from django.core.files.images import ImageFile
 from wagtail.core.models import Page
 

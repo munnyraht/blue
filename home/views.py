@@ -40,7 +40,7 @@ def loansummary(request):
 	return render(request, template, context)
 
 def paymentinfo(request,email='godfredakpan@gmail.com'):
-	user_details= BluecreditUser.objects.get(email=email)
+	user_details = BluecreditUser.objects.get(email=email)
 	if request.method=='POST':
 		form=personalinfo(request.POST)
 		if form.is_valid():
@@ -53,7 +53,7 @@ def paymentinfo(request,email='godfredakpan@gmail.com'):
 			NumberOfDependent=obj['NumberOfDependent']
 			DateAtAddress=obj['DateAtAddress']
 			HomeAddress= obj['HomeAddress']
-			user_id=BluecreditUser.objects.get(EmailAddress=email)
+			user_id = user_id = BluecreditUser.objects.get(EmailAddress=email)
 			personalinfo.objects.create(user_id=user_id,EmailAddress=email,MiddleName=MiddleName,MobileNumber2=MobileNumber2,DateOfBirth=DateOfBirth,MaritalStatus=MaritalStatus,PlaceOfBirth=PlaceOfBirth,NumberOfDependent=NumberOfDependent,DateAtAddress=DateAtAddress,HomeAddress=HomeAddress)
 			template = 'paymentinfo/nextofkin.html'
 			return render(request, template, {})
@@ -92,11 +92,6 @@ def bvnerror(request):
 	template = 'bvnerror/bvnerror.html'
 	return render(request, template, context)
 
-# def verifybvn(request):
-# 	form = Bvn_number()
-# 	context = {'form':form}
-# 	template = 'bvnerror/verifybvn.html'
-# 	return render(request, template, context)
 
 def verifybvn(request):
 	if (request.method=='POST'):
@@ -221,9 +216,9 @@ def acknowledgement_form_upload(request):
             instance = form.save(commit='False')
             instance.user_id = request.user
             instance.save()
-            return redirect('home')
+            return redirect('acknowledgement/acknowledgement.html')
     else:
         form = Acknowledgement()
-    return render(request, 'acknowledgement/uploads.html', {
+    return render(request, 'acknowledgement/acknowledgement.html', {
         'form': form
     })

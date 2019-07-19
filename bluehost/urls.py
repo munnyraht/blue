@@ -40,7 +40,7 @@ urlpatterns = [
     url('summary/', views.summary, name='summary'),
 
     # Upload File 
-    url(r'^upload$', views.acknowledgement_form_upload, name='acknowledgement_form_upload'),
+    url(r'^terms$', views.acknowledgement_form_upload, name='acknowledgement_form_upload'),
 
     #Frontend Reg
    

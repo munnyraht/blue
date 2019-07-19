@@ -51,5 +51,22 @@ class personalinfo(models.Model):
     objects = models.Manager()
 
 
-    
+class personalinformation(models.Model):
+
+    email=models.ForeignKey(BluecreditUser, on_delete=models.PROTECT)
+    MiddleName= models.CharField(max_length=32)
+    MobileNumber2=models.IntegerField(null=True)
+    DateOfBirth=models.DateField(null=True)
+    MaritalStatus=models.CharField(max_length=50)
+    PlaceOfBirth=models.CharField(max_length=100)
+
+    # NumberOfDependent=models.IntegerField()
+    # DateAtAddress=models.DateField()
+    # HomeAddress= models.TextField()
+    # # objects = personalInfo()
+    # # CreatedDate = models.DateTimeField(auto_now = True,)
+
+    NumberOfDependent=models.IntegerField(null=True)
+    DateAtAddress=models.DateField(null=True)
+    HomeAddress= models.TextField(null=True)
 
