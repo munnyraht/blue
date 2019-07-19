@@ -2,6 +2,8 @@ from django import forms
 #from django.forms import ModelForm
 from users.models  import  BluecreditUser
 from backend.models import personalinfo
+from django.contrib.auth.forms import UserCreationForm
+
 # from backend.models import personalinformation
 
 STATES = (
@@ -17,7 +19,7 @@ class loginForm(forms.Form):
 	password = forms.CharField(widget=forms.PasswordInput())
 
     
-class RegisterForm(forms.Form):
+class RegisterForming(UserCreationForm):
     # ROLE = (('LoanMarketer','LoanMarketer'),('LoanMarketer','LoanMarketer'),)
     FirstName=forms.CharField(max_length=38, required=True)
     Surname = forms.CharField(max_length=38, required=True)
@@ -26,7 +28,7 @@ class RegisterForm(forms.Form):
     EmailAddress=forms.EmailField(required=True)
     MobileNumber=forms.DecimalField(decimal_places=0, max_digits=11,required=True)
     password=forms.CharField(max_length=38,required = True, widget = forms.PasswordInput(attrs={'id':'password'}))
-    ConfirmPassword=forms.CharField(max_length=38,required=True,widget = forms.PasswordInput(attrs={'id':'confirmpassword'}))
+    # ConfirmPassword=forms.CharField(max_length=38,required=True,widget = forms.PasswordInput(attrs={'id':'confirmpassword'}))
 
     # class Meta:
     #     model = RegisterForm
@@ -35,6 +37,7 @@ class RegisterForm(forms.Form):
     #       'secretdocs': Select(attrs={'LoanMarketer': 'LoanMarketer'}, {'LoanMarketer': 'LoanMarketer'}),
 
     #     }
+ 
 
 class Bvn_number(forms.Form):
     EmailAddress=forms.EmailField(required=True)
@@ -68,9 +71,35 @@ class personalinfo(forms.Form):
     #     ]
 
 
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
 
+    class Meta:
+        model = BluecreditUser
+        fields = (
+            'username',
+            'FirstName',
+            'Surname',
+            'Role',
+            'EmailAddress',
+            'MobileNumber',
+            'active',            
+        )
 
+    def save(self, commit=True):
+        user = super(RegisterForm, self).save(commit=False)
+        user.username = self.cleaned_data['username']
+        user.FirstName = self.cleaned_data['FirstName']
+        user.Surname = self.cleaned_data['Surname']
+        user.Role = self.cleaned_data['Role']
+        user.EmailAddress = self.cleaned_data['EmailAddress']
+        user.MobileNumber = self.cleaned_data['MobileNumber']
+        user.active = self.cleaned_data['active']
 
+        if commit:
+            user.save()
+
+        return user
 
 
 

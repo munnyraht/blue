@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from backend.forms import loginForm,RegisterForm
 #from backend.models import user
@@ -34,18 +35,18 @@ from passlib.hash import pbkdf2_sha256
 # 		form = loginForm()
 # 		return render(request, 'account/signin.html', {'form' : form})
 
-def register(request):
+def signupp(request):
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
 		if form.is_valid():
 			userObj = form.cleaned_data
 			Firstname = userObj['FirstName']
 			Surname=userObj['Surname']
-			username=userObj['Username']
+			# username=userObj['Username']
 			role=userObj['Role']
 			email =  userObj['EmailAddress']
 			mobilenumber=userObj['MobileNumber']
-			password =  userObj['password']
+			# password =  request.POST['password']
 			confirmpassword=userObj['ConfirmPassword']
 
 			if not (BluecreditUser.objects.filter(EmailAddress=email).exists()):
@@ -55,7 +56,7 @@ def register(request):
 							'error': error }
 					return render(request, 'account/signup.html', context)
 				# enc_password=pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
-				BluecreditUser.objects.create(username=username,FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber,password=password)
+				BluecreditUser.objects.create(FirstName=Firstname,Surname=Surname,Role=role, EmailAddress = email, MobileNumber=mobilenumber)
 				# users = authenticate(EmailAddress = email, Password = password)
 				# login(request)
 				context = {
@@ -108,3 +109,16 @@ def loandetails(request):
 	context = {}
 	template = 'dashboard/loandetails.html'
 	return render(request, template, context)
+
+
+def signup(request):
+    if request.method =='POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pending')
+    else:
+        form = RegisterForm()
+
+        args = {'form': form}
+        return render(request, 'account/signup.html', args)

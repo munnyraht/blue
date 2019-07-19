@@ -7,3 +7,6 @@ admin.site.register(bvn_details)
 admin.site.register(personalinfo)
 admin.site.register(HomeData)
 
+
+
+
